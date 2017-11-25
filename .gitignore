@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+npm-debug.log
+.idea
+assets/css/*.css
+assets/css/*.css.map
+assets/js/*.js
+assets/js/*.js.map
+*.zip
+flatsome-variation-switcher
+mix-manifest.json
+fonts/*/
+images/*/

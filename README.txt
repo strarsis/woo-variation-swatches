@@ -16,7 +16,7 @@ Flatsome Variation Switcher
 
 
 = Links =
-* [Facebook User Group](https://www.facebook.com/groups/___/)
+* [Facebook User Group](https://www.facebook.com/groups/GetWooPlugins/)
 * [Website](https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Flatsome+Variation+Switcher)
 * [Github](https://github.com/EmranAhmed/flatsome-variation-switcher/?utm_source=wordpress.org&utm_campaign=Flatsome+Variation+Switcher)
 

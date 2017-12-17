@@ -1,8 +1,14 @@
-/*global FVSPluginObject, wp*/
+/*global FVSPluginObject, wp, $*/
 
-class FVSPluginHelper {
+const FVSPluginHelper = {
 
-    static MediaUploader(event) {
+    ImageUploader() {
+        $(document).off('click', 'button.fvs_upload_image_button');
+        $(document).on('click', 'button.fvs_upload_image_button', this.AddImage);
+        $(document).on('click', 'button.fvs_remove_image_button', this.RemoveImage);
+    },
+
+    AddImage(event) {
 
         event.preventDefault();
         event.stopPropagation();
@@ -30,13 +36,13 @@ class FVSPluginHelper {
             file_frame.on('select', () => {
                 let attachment = file_frame.state().get('selection').first().toJSON();
 
-                if (jQuery.trim(attachment.id) !== '') {
+                if ($.trim(attachment.id) !== '') {
 
                     let url = ( typeof(attachment.sizes.thumbnail) === 'undefined' ) ? attachment.sizes.full.url : attachment.sizes.thumbnail.url;
 
-                    jQuery(this).prev().val(attachment.id);
-                    jQuery(this).closest('.meta-image-field-wrapper').find('img').attr('src', url);
-                    jQuery(this).next().show();
+                    $(this).prev().val(attachment.id);
+                    $(this).closest('.meta-image-field-wrapper').find('img').attr('src', url);
+                    $(this).next().show();
                 }
                 //file_frame.close();
             });
@@ -46,7 +52,7 @@ class FVSPluginHelper {
 
                 // Grab our attachment selection and construct a JSON representation of the model.
                 let selection  = file_frame.state().get('selection');
-                let current    = jQuery(this).prev().val();
+                let current    = $(this).prev().val();
                 let attachment = wp.media.attachment(current);
                 attachment.fetch();
                 selection.add(attachment ? [attachment] : []);
@@ -55,30 +61,31 @@ class FVSPluginHelper {
             // Finally, open the modal.
             file_frame.open();
         }
-    }
+    },
 
-    static RemoveImage(event) {
+    RemoveImage(event) {
 
-        let placeholder = jQuery(this).closest('.meta-image-field-wrapper').find('img').data('placeholder');
-        jQuery(this).closest('.meta-image-field-wrapper').find('img').attr('src', placeholder);
-        jQuery(this).prev().prev().val('');
-        jQuery(this).hide();
+        let placeholder = $(this).closest('.meta-image-field-wrapper').find('img').data('placeholder');
+        $(this).closest('.meta-image-field-wrapper').find('img').attr('src', placeholder);
+        $(this).prev().prev().val('');
+        $(this).hide();
         return false;
-    }
+    },
 
-    static SelectWoo(selector = 'select.fvs-selectwoo') {
-        jQuery(selector).selectWoo({
+    SelectWoo(selector = 'select.fvs-selectwoo') {
+        $(selector).selectWoo({
             allowClear : true
         });
+    },
+
+    ColorPicker(selector = 'input.fvs-color-picker') {
+        $(selector).wpColorPicker();
+    },
+
+    FieldDependency(selector = '[data-depends]') {
+        $(selector).FormFieldDependency();
     }
 
-    static ColorPicker(selector = 'input.fvs-color-picker') {
-        jQuery(selector).wpColorPicker();
-    }
+};
 
-    static FieldDependency(selector = '[data-depends]') {
-        jQuery(selector).FormFieldDependency();
-    }
-}
-
-export default FVSPluginHelper;
+export { FVSPluginHelper };

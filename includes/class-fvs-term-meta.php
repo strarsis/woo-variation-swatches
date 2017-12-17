@@ -3,7 +3,6 @@
 	defined( 'ABSPATH' ) or die( 'Keep Silent' );
 	
 	if ( ! class_exists( 'FVS_Term_Meta' ) ):
-		
 		class FVS_Term_Meta {
 			
 			private $taxonomy;
@@ -44,17 +43,9 @@
 			}
 			
 			public function enqueue_scripts() {
-				//add_thickbox();
 				wp_enqueue_media();
-				
 				wp_enqueue_style( 'wp-color-picker' );
 				wp_enqueue_script( 'wp-color-picker' );
-				
-				//wp_enqueue_script('jquery-ui-core');
-				//wp_enqueue_script('jquery-ui-widget');
-				//wp_enqueue_script('jquery-ui-mouse');
-				// wp_enqueue_script( 'jquery-ui-sortable' );
-				
 			}
 			
 			public function save( $term_id, $tt_id = '', $taxonomy = '' ) {
@@ -190,46 +181,6 @@
 							<?php
 							echo ob_get_clean();
 							break;
-						
-						case 'ajax-select2':
-							
-							$field[ 'options' ] = isset( $field[ 'options' ] ) ? $field[ 'options' ] : array();
-							$field[ 'multiple' ] = isset( $field[ 'multiple' ] ) ? ' multiple="multiple"' : '';
-							$field[ 'action' ]   = isset( $field[ 'action' ] ) ? ' data-ajax-action="' . esc_attr( $field[ 'action' ] ) . '"' : 'data-ajax-action=""';
-							$options             = apply_filters( 'hippo_theme_plugin_ajax_select2_term_meta_options', array(), $field[ 'value' ], $field );
-							
-							ob_start();
-							?>
-                            <select <?php echo $field[ 'action' ] ?> <?php echo $field[ 'placeholder' ] ?> name="<?php echo $field[ 'id' ] ?>" id="<?php echo $field[ 'id' ] ?>" class="ajax-fvs-selectwoo" <?php echo $field[ 'multiple' ] ?>>
-								<?php
-									foreach ( $options as $value => $text ) {
-										printf( '<option selected="selected" value="%s">%s</option>', esc_attr( $value ), esc_html( $text ) );
-									}
-								?>
-                            </select>
-							<?php
-							echo ob_get_clean();
-							break;
-						
-						case 'icon':
-							$field[ 'options' ] = isset( $field[ 'options' ] ) ? $field[ 'options' ] : array();
-							$field[ 'multiple' ] = isset( $field[ 'multiple' ] ) ? ' multiple="multiple"' : '';
-							$css_class           = 'icon-fvs-selectwoo';
-							ob_start();
-							?>
-                            <select name="<?php echo $field[ 'id' ] ?>" id="<?php echo $field[ 'id' ] ?>"
-                                    class="<?php echo $css_class ?>" <?php echo $field[ 'multiple' ] ?>>
-                                <option value=""><?php __( '-- Choose an Icon --', 'hippo-theme-plugin' ) ?></option>
-								<?php
-									foreach ( $field[ 'options' ] as $key => $option ) {
-										echo '<option' . selected( $field[ 'value' ], $key, FALSE ) . ' value="' . $key . '">' . $option . '</option>';
-									}
-								?>
-                            </select>
-							<?php
-							echo ob_get_clean();
-							break;
-						
 						case 'image':
 							ob_start();
 							?>
@@ -246,7 +197,6 @@
 							<?php
 							echo ob_get_clean();
 							break;
-						
 						default:
 							do_action( 'fvs_term_meta_field', $field, $term );
 							break;
@@ -312,5 +262,4 @@
 				$this->generate_fields( $term );
 			}
 		}
-	
 	endif;

@@ -1,7 +1,6 @@
 <?php
 	defined( 'ABSPATH' ) or die( 'Keep Quit' );
 	
-	
 	flatsome_variation_swatches()->add_setting( 'general', 'General', array(
 		array(
 			'title'  => 'Ticket Section',

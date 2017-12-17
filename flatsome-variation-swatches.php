@@ -104,8 +104,8 @@
 				wp_enqueue_script( 'flatsome-variation-swatches-admin', flatsome_variation_swatches()->assets_uri( "/js/admin{$suffix}.js" ), array( 'jquery' ), $this->version(), TRUE );
 				wp_enqueue_style( 'flatsome-variation-swatches-admin', flatsome_variation_swatches()->assets_uri( "/css/admin{$suffix}.css" ), array(), $this->version() );
 				
-				wp_enqueue_script( 'selectWoo' );
-				wp_enqueue_style( 'select2' );
+				// wp_enqueue_script( 'selectWoo' );
+				// wp_enqueue_style( 'select2' );
 				
 				wp_localize_script( 'flatsome-variation-swatches-admin', 'FVSPluginObject', array(
 					'media_title'  => esc_html__( 'Choose an Image', 'flatsome-variation-swatches' ),

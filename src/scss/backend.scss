@@ -1,0 +1,32 @@
+.button.button-danger {
+  color            : #FFFFFF;
+  background-color : #AF2D2B;
+  border-color     : #A62D2B;
+  box-shadow       : 0 1px 0 #A72D2B;
+  vertical-align   : top;
+  &:hover, &:focus, &:active, &.active {
+    color      : #FFFFFF;
+    background : #C9302C;
+    }
+  }
+
+[data-depends].has-dependent-data {
+  display : none;
+  }
+
+.meta-image-field-wrapper {
+  display : table;
+  .button {
+    margin  : 5px 0;
+    display : block;
+    }
+  .image-preview {
+    display       : table-cell;
+    width         : 60px;
+    padding-right : 10px;
+    }
+  .button-wrapper {
+    display        : table-cell;
+    vertical-align : top;
+    }
+  }

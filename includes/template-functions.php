@@ -2,11 +2,11 @@
 
     defined( 'ABSPATH' ) or die( 'Keep Quit' );
 
-    function hippo_theme_plugin_locate_template( $template_name, $third_party_path = FALSE ) {
+    function fvs_locate_template( $template_name, $third_party_path = FALSE ) {
 
         $template_name = ltrim( $template_name, '/' );
-        $template_path = Hippo_Theme_Plugin()->template_override_dir();
-        $default_path  = Hippo_Theme_Plugin()->template_path();
+        $template_path = flatsome_variation_swatches()->template_override_dir();
+        $default_path  = flatsome_variation_swatches()->template_path();
 
         if ( $third_party_path && is_string( $third_party_path ) ) {
             $default_path = untrailingslashit( $third_party_path );
@@ -16,7 +16,7 @@
         $template = locate_template(
             array(
                 trailingslashit( $template_path ) . trim( $template_name ),
-                'hippo-theme-plugin-template-' . trim( $template_name )
+                'fvs-template-' . trim( $template_name )
             )
         );
 
@@ -26,33 +26,33 @@
         }
 
         // Return what we found.
-        return apply_filters( 'hippo_theme_plugin_locate_template', $template, $template_name, $template_path );
+        return apply_filters( 'fvs_locate_template', $template, $template_name, $template_path );
     }
 
-    function hippo_theme_plugin_get_template( $template_name, $template_args = array(), $third_party_path = FALSE ) {
+    function fvs_get_template( $template_name, $template_args = array(), $third_party_path = FALSE ) {
 
         $template_name = ltrim( $template_name, '/' );
 
-        $located = apply_filters( 'hippo_theme_plugin_get_template', hippo_theme_plugin_locate_template( $template_name, $third_party_path ) );
+        $located = apply_filters( 'fvs_get_template', fvs_locate_template( $template_name, $third_party_path ) );
 
-        do_action( 'hippo_theme_plugin_before_get_template', $template_name, $template_args );
+        do_action( 'fvs_before_get_template', $template_name, $template_args );
 
         extract( $template_args );
 
         if ( file_exists( $located ) ) {
             include $located;
         } else {
-            trigger_error( sprintf( esc_html__( 'Hippo Theme Plugin try to load "%s" but template "%s" was not found.', 'hippo-theme-plugin' ), $located, $template_name ), E_USER_WARNING );
+            trigger_error( sprintf( esc_html__( 'Flatsome Variation Swatches Plugin try to load "%s" but template "%s" was not found.', 'flatsome-variation-swatches' ), $located, $template_name ), E_USER_WARNING );
         }
 
-        do_action( 'hippo_theme_plugin_after_get_template', $template_name, $template_args );
+        do_action( 'fvs_after_get_template', $template_name, $template_args );
     }
 
-    function hippo_theme_plugin_get_theme_file_path( $file, $third_party_path = FALSE ) {
+    function fvs_get_theme_file_path( $file, $third_party_path = FALSE ) {
 
         $file         = ltrim( $file, '/' );
-        $template_dir = Hippo_Theme_Plugin()->template_override_dir();
-        $default_path = Hippo_Theme_Plugin()->template_path();
+        $template_dir = flatsome_variation_swatches()->template_override_dir();
+        $default_path = flatsome_variation_swatches()->template_path();
 
         if ( $third_party_path && is_string( $third_party_path ) ) {
             $default_path = untrailingslashit( $third_party_path );
@@ -66,14 +66,14 @@
             $path = trailingslashit( $default_path ) . $file;
         }
 
-        return apply_filters( 'hippo_theme_plugin_get_theme_file_path', $path, $file );
+        return apply_filters( 'fvs_get_theme_file_path', $path, $file );
     }
 
-    function hippo_theme_plugin_get_theme_file_uri( $file, $third_party_uri = FALSE ) {
+    function fvs_get_theme_file_uri( $file, $third_party_uri = FALSE ) {
 
         $file         = ltrim( $file, '/' );
-        $template_dir = Hippo_Theme_Plugin()->template_override_dir();
-        $default_uri  = Hippo_Theme_Plugin()->template_uri();
+        $template_dir = flatsome_variation_swatches()->template_override_dir();
+        $default_uri  = flatsome_variation_swatches()->template_uri();
 
         if ( $third_party_uri && is_string( $third_party_uri ) ) {
             $default_uri = untrailingslashit( $third_party_uri );
@@ -87,5 +87,5 @@
             $uri = trailingslashit( $default_uri ) . $file;
         }
 
-        return apply_filters( 'hippo_theme_plugin_get_theme_file_uri', $uri, $file );
+        return apply_filters( 'fvs_get_theme_file_uri', $uri, $file );
     }

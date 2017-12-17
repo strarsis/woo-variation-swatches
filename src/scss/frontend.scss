@@ -1,0 +1,124 @@
+// color & Image variable wrapper
+.color-variable-wrapper,
+.image-variable-wrapper {
+  padding   : 0;
+  margin    : 0;
+  display   : flex;
+  flex-wrap : wrap;
+  }
+
+// Color variable item
+.color-variable-item {
+  box-shadow : inset 0 0 3px 0 rgba(0, 0, 0, .1);
+  display    : block;
+  margin     : 10px;
+  position   : relative;
+  cursor     : pointer;
+
+  &:last-of-type {
+    margin-right : 8px;
+    }
+  &::before,
+  &::after {
+    content  : "";
+    position : absolute;
+    }
+
+  &::before {
+    left   : -10px;
+    top    : -10px;
+    width  : 30px;
+    height : 30px;
+    border : 1px solid #E8E8E8;
+    }
+
+  &::after {
+    cursor     : pointer;
+    left       : 0;
+    top        : 0;
+    box-shadow : inset 0 1px 1px 0 rgba(0, 0, 0, 0.3);
+    background : linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, transparent 100%);
+    }
+
+  &:hover::before {
+    border : 1px solid #000000;
+    }
+
+  &.selected::before,
+  &.selected:hover::before {
+    border : 1px solid #000000;
+    }
+  }
+
+// Color variable item border radius
+.color-variable-item,
+.color-variable-item::after,
+.color-variable-item::before,
+.color-variable-item:hover::before,
+.image-variable-item,
+.image-variable-item img {
+  border-radius : 0;
+  }
+
+// Color variable item size
+.color-variable-item,
+.color-variable-item::after {
+  width  : 10px;
+  height : 10px;
+  }
+
+//Image Variable
+.image-variable-item {
+  width        : 40px;
+  height       : 40px;
+  padding      : 3px;
+  border       : 1px solid #E8E8E8;
+  cursor       : pointer;
+  margin-right : 12px;
+
+  &:last-of-type {
+    margin-right : 0;
+    }
+
+  &.selected {
+    border-color : #000000;
+    }
+  &:hover {
+    border-color : #000000;
+    }
+  }
+
+// Button variable wrapper
+.button-variable-wrapper {
+  margin    : 0;
+  padding   : 0;
+  display   : flex;
+  flex-wrap : wrap;
+
+  li {
+    cursor        : pointer;
+    margin-right  : 5px;
+    margin-bottom : 5px;
+
+    &:nth-last-of-type {
+      margin-right : 0;
+      }
+    span {
+      font-size   : .8rem;
+      padding     : 1em 1.1em;
+      border      : 1px solid #E8E8E8;
+      display     : block;
+      line-height : 1;
+
+      &:hover {
+        border-color : #EEEEEE;
+        }
+      }
+
+    &.selected span {
+      background   : #000000;
+      border-color : #000000;
+      color        : white;
+      }
+    }
+  }

@@ -1,7 +1,7 @@
 <?php
 	
 	defined( 'ABSPATH' ) or die( 'Keep Quit' );
- 
+	
 	if ( ! class_exists( 'FVS_Settings_API' ) ):
 		
 		class FVS_Settings_API {
@@ -18,8 +18,7 @@
 				
 				$this->settings_name = apply_filters( 'fvs_settings_name', $this->setting_name );
 				
-				// $this->slug = sprintf( '%s-settings', sanitize_key( $this->plugin_class->get_theme_name() ) );
-				$this->slug = sprintf( '%s-settings', sanitize_key( $this->plugin_class->basename() ) );
+				$this->slug = sprintf( '%s-settings', sanitize_key( $this->plugin_class->dirname() ) );
 				
 				$this->fields = apply_filters( 'fvs_settings', $this->fields );
 				
@@ -101,9 +100,9 @@
 			public function get_option( $option, $default = FALSE ) {
 				$options = get_option( $this->settings_name, $default );
 				if ( isset( $options[ $option ] ) ) {
-					return apply_filters( "fvs_settings_get_option", $options[ $option ], $option, $options, $default );
+					return apply_filters( 'fvs_settings_get_option', $options[ $option ], $option, $options, $default );
 				} else {
-					return apply_filters( "fvs_settings_get_option", $default, $option, $options, $default );
+					return apply_filters( 'fvs_settings_get_option', $default, $option, $options, $default );
 				}
 			}
 			
@@ -118,20 +117,27 @@
 				
 				register_setting( $this->settings_name, $this->settings_name );
 				
-				
-				foreach ( $this->fields as $tabs ) {
+				foreach ( $this->fields as $tab_key => $tab ) {
 					
-					$tabs = apply_filters( 'fvs_settings_sections', $tabs );
+					$tab = apply_filters( 'fvs_settings_tab', $tab );
 					
-					foreach ( $tabs[ 'sections' ] as $section ) {
+					foreach ( $tab[ 'sections' ] as $section_key => $section ) {
 						
-						add_settings_section( $tabs[ 'id' ] . $section[ 'id' ], $section[ 'title' ], function () use ( $section ) {
+						$section = apply_filters( 'fvs_settings_section', $section, $tab );
+						
+						$section[ 'id' ] = ! isset( $section[ 'id' ] ) ? $tab[ 'id' ] . '-section' : $section[ 'id' ];
+						
+						// Adding Settings section id
+						$this->fields[ $tab_key ][ 'sections' ][ $section_key ][ 'id' ] = $section[ 'id' ];
+						
+						add_settings_section( $tab[ 'id' ] . $section[ 'id' ], $section[ 'title' ], function () use ( $section ) {
 							if ( isset( $section[ 'desc' ] ) && ! empty( $section[ 'desc' ] ) ) {
 								echo '<div class="inside">' . $section[ 'desc' ] . '</div>';
 							}
-						}, $tabs[ 'id' ] . $section[ 'id' ] );
+						}, $tab[ 'id' ] . $section[ 'id' ] );
 						
-						$section = apply_filters( 'fvs_settings_fields', $section );
+						
+						$section[ 'fields' ] = apply_filters( 'fvs_settings_fields', $section[ 'fields' ], $section, $tab );
 						
 						foreach ( $section[ 'fields' ] as $field ) {
 							
@@ -143,7 +149,7 @@
 								unset( $field[ 'label_for' ] );
 							}
 							
-							add_settings_field( $this->settings_name . '[' . $field[ 'id' ] . ']', $field[ 'title' ], array( $this, 'field_callback' ), $tabs[ 'id' ] . $section[ 'id' ], $tabs[ 'id' ] . $section[ 'id' ], $field );
+							add_settings_field( $this->settings_name . '[' . $field[ 'id' ] . ']', $field[ 'title' ], array( $this, 'field_callback' ), $tab[ 'id' ] . $section[ 'id' ], $tab[ 'id' ] . $section[ 'id' ], $field );
 						}
 					}
 				}
@@ -400,6 +406,6 @@
 			return new FVS_Settings_API();
 		}
 		
-		add_action( 'plugins_loaded', 'fvs_settings_api' );
+		add_action( 'init', 'fvs_settings_api' );
 	
 	endif;

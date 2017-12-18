@@ -1,4 +1,4 @@
-=== Flatsome Variation Switcher ===
+=== Woo Variation Swatches ===
 Contributors: EmranAhmed, wpeshaan
 Tags: page builder, drag and drop page builder, front-end builder, home page builder, landing page builder, layout builder, page, page builder, page builder plugin, site-builder, template builder, visual page builder, website builder, wysiwyg builder
 Requires at least: 4.8
@@ -8,17 +8,17 @@ Stable tag: trunk
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Flatsome Variation Switcher
+Woo Variation Swatches
 
 == Description ==
 
-Flatsome Variation Switcher
+Woo Variation Swatches
 
 
 = Links =
 * [Facebook User Group](https://www.facebook.com/groups/GetWooPlugins/)
-* [Website](https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Flatsome+Variation+Switcher)
-* [Github](https://github.com/EmranAhmed/flatsome-variation-switcher/?utm_source=wordpress.org&utm_campaign=Flatsome+Variation+Switcher)
+* [Website](https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches)
+* [Github](https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches)
 
 == Installation ==
 
@@ -26,7 +26,7 @@ Flatsome Variation Switcher
 
 1. Login to your the admin panel
 2. Navigate to Plugins -> Add New
-3. Search **Flatsome Variation Switcher**
+3. Search **Woo Variation Switcher**
 4. Click install and activate respectively.
 
 ### Manual Install From WordPress Dashboard

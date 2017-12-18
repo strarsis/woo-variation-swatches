@@ -2,11 +2,11 @@
 	
 	defined( 'ABSPATH' ) or die( 'Keep Quit' );
 	
-	if ( ! class_exists( 'FVS_Settings_API' ) ):
+	if ( ! class_exists( 'WVS_Settings_API' ) ):
 		
-		class FVS_Settings_API {
+		class WVS_Settings_API {
 			
-			private $setting_name = 'flatsome_variation_swatches';
+			private $setting_name = 'woo_variation_swatches';
 			private $slug;
 			private $plugin_class;
 			
@@ -14,13 +14,13 @@
 			
 			public function __construct() {
 				
-				$this->plugin_class = flatsome_variation_swatches();
+				$this->plugin_class = woo_variation_swatches();
 				
-				$this->settings_name = apply_filters( 'fvs_settings_name', $this->setting_name );
+				$this->settings_name = apply_filters( 'wvs_settings_name', $this->setting_name );
 				
 				$this->slug = sprintf( '%s-settings', sanitize_key( $this->plugin_class->dirname() ) );
 				
-				$this->fields = apply_filters( 'fvs_settings', $this->fields );
+				$this->fields = apply_filters( 'wvs_settings', $this->fields );
 				
 				add_action( 'admin_menu', array( $this, 'add_menu' ) );
 				
@@ -32,7 +32,7 @@
 				
 				add_action( 'admin_footer', array( $this, 'admin_inline_js' ) );
 				
-				do_action( 'fvs_setting_api_init', $this );
+				do_action( 'wvs_setting_api_init', $this );
 			}
 			
 			public function admin_inline_js() {
@@ -57,8 +57,8 @@
 					return '';
 				}
 				
-				$page_title = esc_html__( 'Flatsome Variation Swatches Settings', 'flatsome-variation-swatches' );
-				$menu_title = esc_html__( 'Swatches Settings', 'flatsome-variation-swatches' );
+				$page_title = esc_html__( 'Woo Variation Swatches Settings', 'woo-variation-swatches' );
+				$menu_title = esc_html__( 'Swatches Settings', 'woo-variation-swatches' );
 				add_menu_page( $page_title, $menu_title, 'edit_theme_options', $this->slug, array( $this, 'settings_form' ), 'dashicons-admin-generic', 31 );
 			}
 			
@@ -70,9 +70,8 @@
 				
 				global $wp_admin_bar;
 				
-				// $slug  = sprintf( '%s-settings', sanitize_key( Hippo_Theme_Plugin()->get_theme_name() ) );
 				$url        = admin_url( sprintf( 'admin.php?page=%s', $this->slug ) );
-				$menu_title = esc_html__( 'Swatches Settings', 'flatsome-variation-swatches' );
+				$menu_title = esc_html__( 'Swatches Settings', 'woo-variation-swatches' );
 				
 				$args = array(
 					'id'    => $this->settings_name,
@@ -100,9 +99,9 @@
 			public function get_option( $option, $default = FALSE ) {
 				$options = get_option( $this->settings_name, $default );
 				if ( isset( $options[ $option ] ) ) {
-					return apply_filters( 'fvs_settings_get_option', $options[ $option ], $option, $options, $default );
+					return apply_filters( 'wvs_settings_get_option', $options[ $option ], $option, $options, $default );
 				} else {
-					return apply_filters( 'fvs_settings_get_option', $default, $option, $options, $default );
+					return apply_filters( 'wvs_settings_get_option', $default, $option, $options, $default );
 				}
 			}
 			
@@ -119,11 +118,11 @@
 				
 				foreach ( $this->fields as $tab_key => $tab ) {
 					
-					$tab = apply_filters( 'fvs_settings_tab', $tab );
+					$tab = apply_filters( 'wvs_settings_tab', $tab );
 					
 					foreach ( $tab[ 'sections' ] as $section_key => $section ) {
 						
-						$section = apply_filters( 'fvs_settings_section', $section, $tab );
+						$section = apply_filters( 'wvs_settings_section', $section, $tab );
 						
 						$section[ 'id' ] = ! isset( $section[ 'id' ] ) ? $tab[ 'id' ] . '-section' : $section[ 'id' ];
 						
@@ -137,7 +136,7 @@
 						}, $tab[ 'id' ] . $section[ 'id' ] );
 						
 						
-						$section[ 'fields' ] = apply_filters( 'fvs_settings_fields', $section[ 'fields' ], $section, $tab );
+						$section[ 'fields' ] = apply_filters( 'wvs_settings_fields', $section[ 'fields' ], $section, $tab );
 						
 						foreach ( $section[ 'fields' ] as $field ) {
 							
@@ -276,7 +275,7 @@
 							<?php foreach ( $this->fields as $tab ): ?>
 
                                 <div id="<?php echo $tab[ 'id' ] ?>"
-                                     class="settings-tab fvs-setting-tab"
+                                     class="settings-tab wvs-setting-tab"
                                      style="<?php echo( ! isset( $tab[ 'active' ] ) ? 'display: none' : '' ) ?>">
 									<?php foreach ( $tab[ 'sections' ] as $section ):
 										$this->do_settings_sections( $tab[ 'id' ] . $section[ 'id' ] );
@@ -298,7 +297,7 @@
                 <h2 class="nav-tab-wrapper wp-clearfix">
 					<?php foreach ( $this->fields as $tabs ): ?>
                         <a data-target="<?php echo $tabs[ 'id' ] ?>"
-                           class="fvs-setting-nav-tab nav-tab <?php echo ( isset( $tabs[ 'active' ] ) and $tabs[ 'active' ] ) ? 'nav-tab-active' : '' ?> "
+                           class="wvs-setting-nav-tab nav-tab <?php echo ( isset( $tabs[ 'active' ] ) and $tabs[ 'active' ] ) ? 'nav-tab-active' : '' ?> "
                            href="#<?php echo $tabs[ 'id' ] ?>"><?php echo $tabs[ 'title' ] ?></a>
 					<?php endforeach; ?>
                 </h2>
@@ -402,10 +401,10 @@
 			}
 		}
 		
-		function fvs_settings_api() {
-			return new FVS_Settings_API();
+		function wvs_settings_api() {
+			return new WVS_Settings_API();
 		}
 		
-		add_action( 'init', 'fvs_settings_api' );
+		add_action( 'init', 'wvs_settings_api' );
 	
 	endif;

@@ -2,8 +2,8 @@
 	
 	defined( 'ABSPATH' ) or die( 'Keep Silent' );
 	
-	if ( ! class_exists( 'FVS_Term_Meta' ) ):
-		class FVS_Term_Meta {
+	if ( ! class_exists( 'WVS_Term_Meta' ) ):
+		class WVS_Term_Meta {
 			
 			private $taxonomy;
 			private $post_type;
@@ -76,14 +76,14 @@
 										$post_value = sanitize_key( $post_value );
 										break;
 									default:
-										do_action( 'fvs_save_term_meta', $term_id, $field, $post_value, $taxonomy );
+										do_action( 'wvs_save_term_meta', $term_id, $field, $post_value, $taxonomy );
 										break;
 								}
 								update_term_meta( $term_id, $field[ 'id' ], $post_value );
 							}
 						}
 					}
-					do_action( 'fvs_after_term_meta_saved', $term_id, $taxonomy );
+					do_action( 'wvs_after_term_meta_saved', $term_id, $taxonomy );
 				}
 			}
 			
@@ -102,11 +102,11 @@
 			
 			private function generate_form_fields( $term ) {
 				
-				$fields = apply_filters( 'fvs_term_meta_fields', $this->fields, $term );
+				$fields = apply_filters( 'wvs_term_meta_fields', $this->fields, $term );
 				
 				foreach ( $fields as $field ) {
 					
-					$field = apply_filters( 'fvs_term_meta_field', $field, $term );
+					$field = apply_filters( 'wvs_term_meta_field', $field, $term );
 					
 					$field[ 'id' ] = esc_html( $field[ 'id' ] );
 					
@@ -190,15 +190,15 @@
                                 </div>
                                 <div class="button-wrapper">
                                     <input type="hidden" id="<?php echo $field[ 'id' ] ?>" name="<?php echo $field[ 'id' ] ?>" value="<?php echo esc_attr( $field[ 'value' ] ) ?>"/>
-                                    <button type="button" class="fvs_upload_image_button button button-primary button-small"><?php esc_html_e( 'Upload / Add image', 'hippo-theme-plugin' ); ?></button>
-                                    <button type="button" style="<?php echo( empty( $field[ 'value' ] ) ? 'display:none' : '' ) ?>" class="fvs_remove_image_button button button-danger button-small"><?php esc_html_e( 'Remove image', 'hippo-theme-plugin' ); ?></button>
+                                    <button type="button" class="wvs_upload_image_button button button-primary button-small"><?php esc_html_e( 'Upload / Add image', 'hippo-theme-plugin' ); ?></button>
+                                    <button type="button" style="<?php echo( empty( $field[ 'value' ] ) ? 'display:none' : '' ) ?>" class="wvs_remove_image_button button button-danger button-small"><?php esc_html_e( 'Remove image', 'hippo-theme-plugin' ); ?></button>
                                 </div>
                             </div>
 							<?php
 							echo ob_get_clean();
 							break;
 						default:
-							do_action( 'fvs_term_meta_field', $field, $term );
+							do_action( 'wvs_term_meta_field', $field, $term );
 							break;
 						
 					}

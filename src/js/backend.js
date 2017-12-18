@@ -1,8 +1,8 @@
 jQuery($ => {
-    import('./FVSPluginHelper').then(({FVSPluginHelper}) => {
-        FVSPluginHelper.SelectWoo();
-        FVSPluginHelper.ColorPicker();
-        FVSPluginHelper.FieldDependency();
-        FVSPluginHelper.ImageUploader();
+    import('./PluginHelper').then(({PluginHelper}) => {
+        PluginHelper.SelectWoo();
+        PluginHelper.ColorPicker();
+        PluginHelper.FieldDependency();
+        PluginHelper.ImageUploader();
     });
 });  // end of jquery main wrapper

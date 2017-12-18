@@ -2,11 +2,11 @@
 // WooCommerce Variation Change
 // ================================================================
 
-const FVSCustomVariationInput = (($) => {
+const CustomVariationSelect = (($) => {
 
     const Default = {};
 
-    class FVSCustomVariationInput {
+    class CustomVariationSelect {
 
         constructor(element, config) {
 
@@ -18,11 +18,14 @@ const FVSCustomVariationInput = (($) => {
             //this.addInputMarkup();
             this.wrapperAction();
             this.resetDataAction();
+            this.updateVariationValueAction();
+
+            $(document).trigger('custom_variation_select');
         }
 
         static _jQueryInterface(config) {
             return this.each(function () {
-                new FVSCustomVariationInput(this, config)
+                new CustomVariationSelect(this, config)
             })
         }
 
@@ -32,21 +35,15 @@ const FVSCustomVariationInput = (($) => {
                 let select = $(this).prev('select'),
                     li     = $(this).find('li');
 
-                $(this).on('click', 'li:not(.selected)', function () {
+                $(this).on('click', 'li', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     let value = $(this).data('value');
-                    li.removeClass('selected');
                     select.val(value).trigger('change');
-                    $(this).addClass('selected');
-                });
-
-                $(this).on('click', 'li.selected', function () {
-                    li.removeClass('selected');
-                    select.val('').trigger('change');
                     select.trigger('click');
                     select.trigger('focusin');
                     select.trigger('touchstart');
                 });
-
             });
         }
 
@@ -75,7 +72,7 @@ const FVSCustomVariationInput = (($) => {
                         selects  = [];
 
                     options.each(function () {
-                        if ($(this).val() != '') {
+                        if ($(this).val() !== '') {
                             selects.push($(this).val());
                             selected = current ? current.val() : eq.val();
                         }
@@ -85,11 +82,10 @@ const FVSCustomVariationInput = (($) => {
                         li.each(function () {
                             let value = $(this).data('value');
                             $(this).removeClass('selected disabled');
-
                             if (_.contains(selects, value)) {
                                 $(this).removeClass('disabled');
 
-                                if (value == selected) {
+                                if (value === selected) {
                                     $(this).addClass('selected');
                                 }
                             }
@@ -116,15 +112,15 @@ const FVSCustomVariationInput = (($) => {
      * ------------------------------------------------------------------------
      */
 
-    $.fn['FVSCustomVariationInput'] = FVSCustomVariationInput._jQueryInterface;
-    $.fn['FVSCustomVariationInput'].Constructor = FVSCustomVariationInput;
-    $.fn['FVSCustomVariationInput'].noConflict  = function () {
-        $.fn['FVSCustomVariationInput'] = $.fn['FVSCustomVariationInput'];
-        return FVSCustomVariationInput._jQueryInterface
+    $.fn['CustomVariationSelect'] = CustomVariationSelect._jQueryInterface;
+    $.fn['CustomVariationSelect'].Constructor = CustomVariationSelect;
+    $.fn['CustomVariationSelect'].noConflict  = function () {
+        $.fn['CustomVariationSelect'] = $.fn['CustomVariationSelect'];
+        return CustomVariationSelect._jQueryInterface
     }
 
-    return FVSCustomVariationInput;
+    return CustomVariationSelect;
 
 })(jQuery);
 
-export default FVSCustomVariationInput
+export default CustomVariationSelect

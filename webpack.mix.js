@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'package') {
         let copyto    = path.resolve(`__RELEASE__${bundledir}`);
         // Select All file then paste on list
         let list      = `assets
-flatsome-variation-swatches.php
+woo-variation-swatches.php
 images
 includes
 languages
@@ -52,24 +52,26 @@ webpack.mix.js`;
 
 if (Mix.inProduction()) {
     mix.generatePot({
-        package   : 'Flatsome Variation Swatches',
-        bugReport : '#',
+        package   : 'Woo Variation Swatches',
+        bugReport : 'https://github.com/EmranAhmed/woo-variation-swatches/issues',
         src       : '*.php',
-        domain    : 'flatsome-variation-swatches',
-        destFile  : `languages/flatsome-variation-swatches.pot`
+        domain    : 'woo-variation-swatches',
+        destFile  : `languages/woo-variation-swatches.pot`
     });
 }
 
 mix.banner({
-    banner : "Flatsome Variation Swatches v1.0.0 \n\nAuthor: Emran Ahmed ( emran.bd.08@gmail.com ) \nDate: " + new Date().toLocaleString() + "\nReleased under the GPLv3 license."
+    banner : "Woo Variation Swatches v1.0.0 \n\nAuthor: Emran Ahmed ( emran.bd.08@gmail.com ) \nDate: " + new Date().toLocaleString() + "\nReleased under the GPLv3 license."
 });
 
 mix.notification({
-    title : 'Variation Swatches',
+    title : 'Woo Variation Swatches',
     // contentImage : Mix.paths.root('images/logo.png')
 });
 
-mix.sourceMaps();
+if (!Mix.inProduction()) {
+    mix.sourceMaps();
+}
 
 mix.js(`src/js/backend.js`, `assets/js/admin${min}.js`);
 mix.js(`src/js/frontend.js`, `assets/js/frontend${min}.js`);

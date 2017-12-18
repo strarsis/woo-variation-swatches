@@ -6,11 +6,11 @@
 	// Add attribute types on WooCommerce taxonomy
 	//-------------------------------------------------------------------------------
 	
-	if ( ! function_exists( 'fvs_product_attributes_types' ) ):
-		function fvs_product_attributes_types( $selector ) {
-			$selector[ 'color' ]  = esc_html__( 'Color', 'flatsome-variation-swatches' );
-			$selector[ 'image' ]  = esc_html__( 'Image', 'flatsome-variation-swatches' );
-			$selector[ 'button' ] = esc_html__( 'Button', 'flatsome-variation-swatches' );
+	if ( ! function_exists( 'wvs_product_attributes_types' ) ):
+		function wvs_product_attributes_types( $selector ) {
+			$selector[ 'color' ]  = esc_html__( 'Color', 'woo-variation-swatches' );
+			$selector[ 'image' ]  = esc_html__( 'Image', 'woo-variation-swatches' );
+			$selector[ 'button' ] = esc_html__( 'Button', 'woo-variation-swatches' );
 			
 			return $selector;
 		}
@@ -21,15 +21,15 @@
 	// Add WooCommerce taxonomy Meta
 	//-------------------------------------------------------------------------------
 	
-	if ( ! function_exists( 'fvs_add_product_taxonomy_meta' ) ) {
+	if ( ! function_exists( 'wvs_add_product_taxonomy_meta' ) ) {
 		
-		function fvs_add_product_taxonomy_meta() {
+		function wvs_add_product_taxonomy_meta() {
 			$fields = array();
 			
 			$fields[ 'color' ] = array(
 				array(
-					'label' => esc_html__( 'Color', 'flatsome-variation-swatches' ), // <label>
-					'desc'  => esc_html__( 'Choose a color', 'flatsome-variation-swatches' ), // description
+					'label' => esc_html__( 'Color', 'woo-variation-swatches' ), // <label>
+					'desc'  => esc_html__( 'Choose a color', 'woo-variation-swatches' ), // description
 					'id'    => 'product_attribute_color', // name of field
 					'type'  => 'color'
 				)
@@ -37,8 +37,8 @@
 			
 			$fields[ 'image' ] = array(
 				array(
-					'label' => esc_html__( 'Image', 'flatsome-variation-swatches' ), // <label>
-					'desc'  => esc_html__( 'Choose an Image', 'flatsome-variation-swatches' ), // description
+					'label' => esc_html__( 'Image', 'woo-variation-swatches' ), // <label>
+					'desc'  => esc_html__( 'Choose an Image', 'woo-variation-swatches' ), // description
 					'id'    => 'product_attribute_image', // name of field
 					'type'  => 'image'
 				)
@@ -52,9 +52,9 @@
 						$product_attr      = wc_attribute_taxonomy_name( $tax->attribute_name );
 						$product_attr_type = $tax->attribute_type;
 						if ( in_array( $product_attr_type, array( 'color', 'image' ) ) ) :
-							flatsome_variation_swatches()->add_term_meta( $product_attr, 'product', $fields[ $product_attr_type ] );
+							woo_variation_swatches()->add_term_meta( $product_attr, 'product', $fields[ $product_attr_type ] );
 							
-							do_action( 'fvs_wc_attribute_taxonomy_meta_added', $product_attr, $product_attr_type );
+							do_action( 'wvs_wc_attribute_taxonomy_meta_added', $product_attr, $product_attr_type );
 						endif; //  in_array( $product_attr_type, array( 'color', 'image' ) )
 					endforeach; // $attribute_taxonomies
 				endif; // $attribute_taxonomies
@@ -67,9 +67,9 @@
 	// Extra Product Option Terms
 	//-------------------------------------------------------------------------------
 	
-	if ( ! function_exists( 'fvs_product_option_terms' ) ) :
+	if ( ! function_exists( 'wvs_product_option_terms' ) ) :
 		
-		function fvs_product_option_terms( $tax, $i ) {
+		function wvs_product_option_terms( $tax, $i ) {
 			global $thepostid;
 			if ( in_array( $tax->attribute_type, array( 'color', 'image', 'button' ) ) ) {
 				
@@ -80,7 +80,7 @@
 					'hide_empty' => 0,
 				);
 				?>
-                <select multiple="multiple" data-placeholder="<?php esc_attr_e( 'Select terms', 'flatsome-variation-swatches' ); ?>" class="multiselect attribute_values wc-enhanced-select" name="attribute_values[<?php echo $i; ?>][]">
+                <select multiple="multiple" data-placeholder="<?php esc_attr_e( 'Select terms', 'woo-variation-swatches' ); ?>" class="multiselect attribute_values wc-enhanced-select" name="attribute_values[<?php echo $i; ?>][]">
 					<?php
 						$all_terms = get_terms( $taxonomy, apply_filters( 'woocommerce_product_attribute_terms', $args ) );
 						if ( $all_terms ) :
@@ -90,9 +90,9 @@
 						endif;
 					?>
                 </select>
-                <button class="button plus select_all_attributes"><?php esc_html_e( 'Select all', 'flatsome-variation-swatches' ); ?></button>
-                <button class="button minus select_no_attributes"><?php esc_html_e( 'Select none', 'flatsome-variation-swatches' ); ?></button>
-                <button class="button fr plus add_new_attribute"><?php esc_html_e( 'Add new', 'flatsome-variation-swatches' ); ?></button>
+                <button class="button plus select_all_attributes"><?php esc_html_e( 'Select all', 'woo-variation-swatches' ); ?></button>
+                <button class="button minus select_no_attributes"><?php esc_html_e( 'Select none', 'woo-variation-swatches' ); ?></button>
+                <button class="button fr plus add_new_attribute"><?php esc_html_e( 'Add new', 'woo-variation-swatches' ); ?></button>
 				<?php
 			}
 		}
@@ -103,9 +103,9 @@
 	// Color Variation Attribute Options
 	//-------------------------------------------------------------------------------
 	
-	if ( ! function_exists( 'fvs_color_variation_attribute_options' ) ) :
+	if ( ! function_exists( 'wvs_color_variation_attribute_options' ) ) :
 		
-		function fvs_color_variation_attribute_options( $args = array() ) {
+		function wvs_color_variation_attribute_options( $args = array() ) {
 			
 			$args = wp_parse_args( $args, array(
 				'options'          => FALSE,
@@ -115,7 +115,7 @@
 				'name'             => '',
 				'id'               => '',
 				'class'            => '',
-				'show_option_none' => esc_html__( 'Choose an option', 'flatsome-variation-swatches' )
+				'show_option_none' => esc_html__( 'Choose an option', 'woo-variation-swatches' )
 			) );
 			
 			$options               = $args[ 'options' ];
@@ -178,9 +178,9 @@
 	// Image Variation Attribute Options
 	//-------------------------------------------------------------------------------
 	
-	if ( ! function_exists( 'fvs_image_variation_attribute_options' ) ) :
+	if ( ! function_exists( 'wvs_image_variation_attribute_options' ) ) :
 		
-		function fvs_image_variation_attribute_options( $args = array() ) {
+		function wvs_image_variation_attribute_options( $args = array() ) {
 			
 			$args = wp_parse_args( $args, array(
 				'options'          => FALSE,
@@ -190,7 +190,7 @@
 				'name'             => '',
 				'id'               => '',
 				'class'            => '',
-				'show_option_none' => esc_html__( 'Choose an option', 'flatsome-variation-swatches' )
+				'show_option_none' => esc_html__( 'Choose an option', 'woo-variation-swatches' )
 			) );
 			
 			$options               = $args[ 'options' ];
@@ -253,9 +253,9 @@
 	// Button Variation Attribute Options
 	//-------------------------------------------------------------------------------
 	
-	if ( ! function_exists( 'fvs_button_variation_attribute_options' ) ) :
+	if ( ! function_exists( 'wvs_button_variation_attribute_options' ) ) :
 		
-		function fvs_button_variation_attribute_options( $args = array() ) {
+		function wvs_button_variation_attribute_options( $args = array() ) {
 			
 			$args = wp_parse_args( $args, array(
 				'options'          => FALSE,
@@ -265,7 +265,7 @@
 				'name'             => '',
 				'id'               => '',
 				'class'            => '',
-				'show_option_none' => esc_html__( 'Choose an option', 'flatsome-variation-swatches' )
+				'show_option_none' => esc_html__( 'Choose an option', 'woo-variation-swatches' )
 			) );
 			
 			$options               = $args[ 'options' ];
@@ -326,12 +326,12 @@
 	//-------------------------------------------------------------------------------
 	// Get a Attribute taxonomy values
 	//-------------------------------------------------------------------------------
-	if ( ! function_exists( 'fvs_get_wc_attribute_taxonomy' ) ):
-		function fvs_get_wc_attribute_taxonomy( $attribute_name ) {
+	if ( ! function_exists( 'wvs_get_wc_attribute_taxonomy' ) ):
+		function wvs_get_wc_attribute_taxonomy( $attribute_name ) {
 			
-			$transient = sprintf( 'fvs_get_wc_attribute_taxonomy_%s', $attribute_name );
+			$transient = sprintf( 'wvs_get_wc_attribute_taxonomy_%s', $attribute_name );
 			
-			if ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || isset( $_GET[ 'fvs_clear' ] ) ) {
+			if ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || isset( $_GET[ 'wvs_clear' ] ) ) {
 				delete_transient( $transient );
 			}
 			
@@ -343,31 +343,31 @@
 				set_transient( $transient, $attribute_taxonomy );
 			}
 			
-			return apply_filters( 'fvs_get_wc_attribute_taxonomy', $attribute_taxonomy, $attribute_name );
+			return apply_filters( 'wvs_get_wc_attribute_taxonomy', $attribute_taxonomy, $attribute_name );
 		}
 	endif;
 	
 	// Clean transient
 	add_action( 'woocommerce_attribute_updated', function ( $attribute_id, $attribute, $old_attribute_name ) {
 		
-		$transient     = sprintf( 'fvs_get_wc_attribute_taxonomy_%s', wc_attribute_taxonomy_name( $attribute[ 'attribute_name' ] ) );
-		$old_transient = sprintf( 'fvs_get_wc_attribute_taxonomy_%s', wc_attribute_taxonomy_name( $old_attribute_name ) );
+		$transient     = sprintf( 'wvs_get_wc_attribute_taxonomy_%s', wc_attribute_taxonomy_name( $attribute[ 'attribute_name' ] ) );
+		$old_transient = sprintf( 'wvs_get_wc_attribute_taxonomy_%s', wc_attribute_taxonomy_name( $old_attribute_name ) );
 		delete_transient( $transient );
 		delete_transient( $old_transient );
 	}, 20, 3 );
 	
 	// Clean transient
 	add_action( 'woocommerce_attribute_deleted', function ( $attribute_id, $attribute_name, $taxonomy ) {
-		$transient = sprintf( 'fvs_get_wc_attribute_taxonomy_%s', $taxonomy );
+		$transient = sprintf( 'wvs_get_wc_attribute_taxonomy_%s', $taxonomy );
 		delete_transient( $transient );
 	}, 20, 3 );
 	
 	//-------------------------------------------------------------------------------
 	// Check has attribute type like color or image etc.
 	//-------------------------------------------------------------------------------
-	if ( ! function_exists( 'fvs_wc_product_has_attribute_type' ) ):
-		function fvs_wc_product_has_attribute_type( $type, $attribute_name ) {
-			$attribute = fvs_get_wc_attribute_taxonomy( $attribute_name );
+	if ( ! function_exists( 'wvs_wc_product_has_attribute_type' ) ):
+		function wvs_wc_product_has_attribute_type( $type, $attribute_name ) {
+			$attribute = wvs_get_wc_attribute_taxonomy( $attribute_name );
 			
 			return isset( $attribute->attribute_type ) && ( $attribute->attribute_type == $type );
 		}
@@ -376,30 +376,30 @@
 	//-------------------------------------------------------------------------------
 	// Generate Option HTML
 	//-------------------------------------------------------------------------------
-	if ( ! function_exists( 'fvs_variation_attribute_options_html' ) ):
-		function fvs_variation_attribute_options_html( $html, $args ) {
+	if ( ! function_exists( 'wvs_variation_attribute_options_html' ) ):
+		function wvs_variation_attribute_options_html( $html, $args ) {
 			ob_start();
-			if ( fvs_wc_product_has_attribute_type( 'color', $args[ 'attribute' ] ) ):
+			if ( wvs_wc_product_has_attribute_type( 'color', $args[ 'attribute' ] ) ):
 				
-				fvs_color_variation_attribute_options( array(
+				wvs_color_variation_attribute_options( array(
 					                                       'options'   => $args[ 'options' ],
 					                                       'attribute' => $args[ 'attribute' ],
 					                                       'product'   => $args[ 'product' ],
 					                                       'selected'  => $args[ 'selected' ]
 				                                       ) );
 
-            elseif ( fvs_wc_product_has_attribute_type( 'image', $args[ 'attribute' ] ) ):
+            elseif ( wvs_wc_product_has_attribute_type( 'image', $args[ 'attribute' ] ) ):
 				
-				fvs_image_variation_attribute_options( array(
+				wvs_image_variation_attribute_options( array(
 					                                       'options'   => $args[ 'options' ],
 					                                       'attribute' => $args[ 'attribute' ],
 					                                       'product'   => $args[ 'product' ],
 					                                       'selected'  => $args[ 'selected' ]
 				                                       ) );
 
-            elseif ( fvs_wc_product_has_attribute_type( 'button', $args[ 'attribute' ] ) ):
+            elseif ( wvs_wc_product_has_attribute_type( 'button', $args[ 'attribute' ] ) ):
 				
-				fvs_button_variation_attribute_options( array(
+				wvs_button_variation_attribute_options( array(
 					                                        'options'   => $args[ 'options' ],
 					                                        'attribute' => $args[ 'attribute' ],
 					                                        'product'   => $args[ 'product' ],

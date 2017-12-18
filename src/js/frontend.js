@@ -1,8 +1,8 @@
 jQuery($ => {
-    import('./FVSCustomVariationInput').then(() => {
+    import('./CustomVariationSelect').then(() => {
         // Init on Ajax Popup :)
         $(document).on('wc_variation_form', '.variations_form', function () {
-            $(this).FVSCustomVariationInput();
+            $(this).CustomVariationSelect();
         });
     });
 });  // end of jquery main wrapper

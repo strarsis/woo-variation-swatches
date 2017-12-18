@@ -1,7 +1,7 @@
-/*global FVSPluginObject, wp*/
+/*global WVSPluginObject, wp*/
 
-const FVSPluginHelper = (($) => {
-    class FVSPluginHelper {
+const PluginHelper = (($) => {
+    class PluginHelper {
 
         static ImageUploader() {
             $(document).off('click', 'button.fvs_upload_image_button');
@@ -26,9 +26,9 @@ const FVSPluginHelper = (($) => {
 
                 // Create the media frame.
                 file_frame = wp.media.frames.select_image = wp.media({
-                    title    : FVSPluginObject.media_title,
+                    title    : WVSPluginObject.media_title,
                     button   : {
-                        text : FVSPluginObject.button_title
+                        text : WVSPluginObject.button_title
                     },
                     multiple : false,
                 });
@@ -91,7 +91,7 @@ const FVSPluginHelper = (($) => {
         }
     }
 
-    return FVSPluginHelper;
+    return PluginHelper;
 })(jQuery);
 
-export { FVSPluginHelper };
+export { PluginHelper };

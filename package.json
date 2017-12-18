@@ -1,6 +1,6 @@
 {
-  "package": "Flatsome Variation Swatches",
-  "name": "flatsome-variation-swatches",
+  "package": "Woo Variation Swatches",
+  "name": "woo-variation-swatches",
   "version": "1.0.0",
   "author": "Emran Ahmed <emran.bd.08@gmail.com>",
   "contact": "emran.bd.08@gmail.com",
@@ -20,8 +20,7 @@
     "extend": "^3.0.1",
     "fs-extra": "^5.0.0",
     "sanitize-html": "^1.16.3",
-    "sprintf-js": "^1.1.1",
-    "vue": "^2.5.11"
+    "sprintf-js": "^1.1.1"
   },
   "dependencies": {
     "wp-mix": "^1.0.5"

@@ -7,7 +7,7 @@ assets/css/*.css.map
 assets/js/*.js
 assets/js/*.js.map
 *.zip
-flatsome-variation-switcher
+woo-variation-swatches
 mix-manifest.json
 fonts/*/
 images/*/

@@ -61,14 +61,12 @@
 			endif; // function_exists( 'wc_get_attribute_taxonomies' )
 		}
 	}
-	
-	
+ 
 	//-------------------------------------------------------------------------------
 	// Extra Product Option Terms
 	//-------------------------------------------------------------------------------
 	
 	if ( ! function_exists( 'wvs_product_option_terms' ) ) :
-		
 		function wvs_product_option_terms( $tax, $i ) {
 			global $thepostid;
 			if ( in_array( $tax->attribute_type, array( 'color', 'image', 'button' ) ) ) {
@@ -96,7 +94,6 @@
 				<?php
 			}
 		}
-	
 	endif;
 	
 	//-------------------------------------------------------------------------------
@@ -163,7 +160,7 @@
 							$get_term_meta  = sanitize_hex_color( get_term_meta( $term->term_id, 'product_attribute_color', TRUE ) );
 							$selected_class = ( sanitize_title( $args[ 'selected' ] ) == $term->slug ) ? 'selected' : '';
 							?>
-                            <li data-toggle="tooltip" data-placement="top" class="variable-item color-variable-item color-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" style="background-color:<?php echo esc_attr( $get_term_meta ) ?>;" data-value="<?php echo esc_attr( $term->slug ) ?>"></li>
+                            <li data-toggle="tooltip" data-placement="top" class="variable-item color-variable-item color-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span style="background-color:<?php echo esc_attr( $get_term_meta ) ?>;"></span></li>
 							<?php
 						}
 					}
@@ -236,7 +233,7 @@
 					foreach ( $terms as $term ) {
 						if ( in_array( $term->slug, $options ) ) {
 							$attachment_id  = absint( get_term_meta( $term->term_id, 'product_attribute_image', TRUE ) );
-							$image          = wp_get_attachment_image_url( $attachment_id, 'full' );
+							$image          = wp_get_attachment_image_url( $attachment_id );
 							$selected_class = ( sanitize_title( $args[ 'selected' ] ) == $term->slug ) ? 'selected' : '';
 							?>
                             <li data-toggle="tooltip" data-placement="top" class="variable-item image-variable-item image-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><img alt="<?php echo esc_html( $term->name ) ?>" src="<?php echo esc_url( $image ) ?>"></li>
@@ -321,11 +318,11 @@
 			echo '</ul>';
 		}
 	endif;
-	
-	
+ 
 	//-------------------------------------------------------------------------------
 	// Get a Attribute taxonomy values
 	//-------------------------------------------------------------------------------
+ 
 	if ( ! function_exists( 'wvs_get_wc_attribute_taxonomy' ) ):
 		function wvs_get_wc_attribute_taxonomy( $attribute_name ) {
 			
@@ -376,6 +373,7 @@
 	//-------------------------------------------------------------------------------
 	// Generate Option HTML
 	//-------------------------------------------------------------------------------
+ 
 	if ( ! function_exists( 'wvs_variation_attribute_options_html' ) ):
 		function wvs_variation_attribute_options_html( $html, $args ) {
 			ob_start();

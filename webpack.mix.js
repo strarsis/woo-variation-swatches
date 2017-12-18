@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === 'package') {
 
         let bundledir = path.basename(path.resolve(__dirname));
         let copyfrom  = path.resolve(__dirname);
-        let copyto    = path.resolve(`__RELEASE__${bundledir}`);
+        let copyto    = path.resolve(`${bundledir}`);
         // Select All file then paste on list
         let list      = `assets
 woo-variation-swatches.php

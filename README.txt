@@ -1,6 +1,6 @@
 === Woo Variation Swatches ===
 Contributors: EmranAhmed, wpeshaan
-Tags: page builder, drag and drop page builder, front-end builder, home page builder, landing page builder, layout builder, page, page builder, page builder plugin, site-builder, template builder, visual page builder, website builder, wysiwyg builder
+Tags: woocommerce, variation swatches, product attributes, product color, product size, variable product attributes, variation product swatches, color variation swatch, image variation swatch
 Requires at least: 4.8
 Tested up to: 4.9
 Requires PHP: 5.6
@@ -8,12 +8,21 @@ Stable tag: trunk
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Woo Variation Swatches
+Beautiful Color, Image and Buttons Variation Swatches For WooCommerce Product Attributes
 
 == Description ==
 
-Woo Variation Swatches
+Woo Variation Swatches is easy to use WooCommerce product variation swatches plugin. It offers an aesthetic and professional experience to select attributes for variation products. It turns the product variation select options fields into radio images, colors, and label. It means with the help of this powerful WooCommerce color or image variation swatches plugin, you can show product variation items in images, colors, and label. So, you can say goodbye to dropdown product attribute fields. Woo Variation Swatches not only offers the color, image and label attributes in the single WooCommerce product. It also enables them in product quick view. If you're using WooCommerce themes like Flatsome that comes with default Quick View option, you don’t need to hassle to load color and image swatches for variable product attributes in quick view separately.
 
+= Key Feature Comes with this Plugin =
+
+* Work on variable product
+* Work on variable product quick view
+* Enable attributes into images swatches
+* Enable attributes into color swatches
+* Enable attributes into label/text/button swatches
+* Control attribute setting globally.
+* No extra option and no conclusion.
 
 = Links =
 * [Facebook User Group](https://www.facebook.com/groups/GetWooPlugins/)
@@ -63,4 +72,6 @@ How to ans
 
 = 1.0.0 =
 
-- Initial release
+* Initial release
+
+== Upgrade Notice ==

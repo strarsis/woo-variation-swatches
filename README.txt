@@ -53,20 +53,41 @@ If you are unable to use any of the methods due to internet connectivity and fil
 1. Download the plugin by clicking on the red button above. A ZIP file will be downloaded.
 2. Unzip the file.
 3. Launch your favorite FTP client. Such as FileZilla, FireFTP, CyberDuck etc. If you are a more advanced user, then you can use SSH too.
-4. Upload the folder to wp-content/plugins/
+4. Upload the folder to `wp-content/plugins/`
 5. Log in to your WordPress dashboard.
 6. Navigate to Plugins -> Installed
 7. Activate the plugin
 
 == Frequently Asked Questions ==
 
-= How to ...? =
+= How can I configure attributes? =
 
-How to ans
+Even this plugin has been installed and activated on your site, variable products will still show dropdowns if you’ve not configured product attributes.
+
+1. Log in to your WordPress dashboard, navigate to the Products menu and click Attributes.
+2. Click to attribute name to edit an exists attribute or in the Add New Attribute form you will see the default Type selector.
+3. Click to that Type selector to change attribute’s type. Besides default options Select and Text, there are more 3 options Color, Image, Button/Label to choose.
+4. Select the suitable type for your attribute and click Save Change/Add attribute
+5. Go back to manage attributes screen. Click the cog icon on the right side of attribute to start editing terms.
+6. Start adding new terms or editing exists terms. There is will be a new option at the end of form that let you choose the color, upload image or choose as a button for those terms.
+
+= Is it compatible with Any kinds of Woocommerce Theme? =
+
+Yes, it's compatible with woocommerce theme including Flatsome. But sometimes it may require small css tweak.
+
+= Does it show in product Quickview? =
+
+Yes, it supports any kinds of product quick view.
 
 == Screenshots ==
 
-1. screenshot-1
+1. Single Product variation page
+2. Product QuickView
+3. Available Attribute Options
+4. Attribute Image Type Preview
+5. Attribute Color Type Preview
+6. Attribute Button / Label Type Preview
+7. Variation Product Edit view
 
 == Changelog ==
 

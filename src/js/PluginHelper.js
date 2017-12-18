@@ -4,9 +4,9 @@ const PluginHelper = (($) => {
     class PluginHelper {
 
         static ImageUploader() {
-            $(document).off('click', 'button.fvs_upload_image_button');
-            $(document).on('click', 'button.fvs_upload_image_button', this.AddImage);
-            $(document).on('click', 'button.fvs_remove_image_button', this.RemoveImage);
+            $(document).off('click', 'button.wvs_upload_image_button');
+            $(document).on('click', 'button.wvs_upload_image_button', this.AddImage);
+            $(document).on('click', 'button.wvs_remove_image_button', this.RemoveImage);
         }
 
         static AddImage(event) {
@@ -76,13 +76,13 @@ const PluginHelper = (($) => {
             return false;
         }
 
-        static SelectWoo(selector = 'select.fvs-selectwoo') {
+        static SelectWoo(selector = 'select.wvs-selectwoo') {
             $(selector).selectWoo({
                 allowClear : true
             });
         }
 
-        static ColorPicker(selector = 'input.fvs-color-picker') {
+        static ColorPicker(selector = 'input.wvs-color-picker') {
             $(selector).wpColorPicker();
         }
 

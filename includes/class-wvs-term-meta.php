@@ -139,7 +139,7 @@
 						case 'color':
 							ob_start();
 							?>
-                            <input name="<?php echo $field[ 'id' ] ?>" id="<?php echo $field[ 'id' ] ?>" type="text" class="fvs-color-picker" value="<?php echo $field[ 'value' ] ?>" size="<?php echo $field[ 'size' ] ?>" <?php echo $field[ 'required' ] . $field[ 'placeholder' ] ?>>
+                            <input name="<?php echo $field[ 'id' ] ?>" id="<?php echo $field[ 'id' ] ?>" type="text" class="wvs-color-picker" value="<?php echo $field[ 'value' ] ?>" size="<?php echo $field[ 'size' ] ?>" <?php echo $field[ 'required' ] . $field[ 'placeholder' ] ?>>
 							<?php
 							echo ob_get_clean();
 							break;
@@ -167,7 +167,7 @@
 							
 							$field[ 'options' ] = isset( $field[ 'options' ] ) ? $field[ 'options' ] : array();
 							$field[ 'multiple' ] = isset( $field[ 'multiple' ] ) ? ' multiple="multiple"' : '';
-							$css_class           = ( $field[ 'type' ] == 'select2' ) ? 'fvs-selectwoo' : '';
+							$css_class           = ( $field[ 'type' ] == 'select2' ) ? 'wvs-selectwoo' : '';
 							
 							ob_start();
 							?>
@@ -238,7 +238,7 @@
 			}
 			
 			public function placeholder_img_src() {
-				return flatsome_variation_swatches()->images_uri( 'placeholder.png' );
+				return woo_variation_swatches()->images_uri( 'placeholder.png' );
 			}
 			
 			private function field_end( $field, $term ) {

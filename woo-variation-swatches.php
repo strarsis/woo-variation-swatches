@@ -37,7 +37,7 @@
 				$this->constants();
 				$this->includes();
 				$this->hooks();
-				do_action( 'flatsome_variation_swatches_loaded', $this );
+				do_action( 'woo_variation_swatches_loaded', $this );
 			}
 			
 			public function constants() {
@@ -186,7 +186,7 @@
 					$class   = 'notice notice-error';
 					$text    = esc_html__( 'Please check PHP version requirement.', 'woo-variation-swatches' );
 					$link    = esc_url( 'https://docs.woocommerce.com/document/server-requirements/' );
-					$message = wp_kses( __( "It's required to use latest version of PHP to use <strong>Flatsome Variation Switcher</strong>.", 'woo-variation-swatches' ), array( 'strong' => array() ) );
+					$message = wp_kses( __( "It's required to use latest version of PHP to use <strong>Woo Variation Swatches</strong>.", 'woo-variation-swatches' ), array( 'strong' => array() ) );
 					
 					printf( '<div class="%1$s"><p>%2$s <a target="_blank" href="%3$s">%4$s</a></p></div>', $class, $message, $link, $text );
 				}
@@ -198,7 +198,7 @@
 					
 					$text    = esc_html__( 'WooCommerce', 'woo-variation-swatches' );
 					$link    = esc_url( 'https://wordpress.org/plugins/woocommerce/' );
-					$message = wp_kses( __( "<strong>Flatsome Variation Switcher</strong> is an add-on of ", 'woo-variation-swatches' ), array( 'strong' => array() ) );
+					$message = wp_kses( __( "<strong>Woo Variation Switcher</strong> is an add-on of ", 'woo-variation-swatches' ), array( 'strong' => array() ) );
 					
 					printf( '<div class="%1$s"><p>%2$s <a target="_blank" href="%3$s"><strong>%4$s</strong></a></p></div>', $class, $message, $link, $text );
 				}

@@ -9,7 +9,7 @@
 	 * Requires at least: 4.8
 	 * Tested up to: 4.9
 	 * WC requires at least: 3.2.0
-	 * WC tested up to: 3.2.5
+	 * WC tested up to: 3.2.6
 	 * Text Domain: woo-variation-swatches
 	 * Author URI: https://getwooplugins.com/
 	 */
@@ -59,12 +59,9 @@
 			
 			public function includes() {
 				if ( $this->is_required_php_version() ) {
-					require_once $this->include_path( 'class-wvs-settings-api.php' );
 					require_once $this->include_path( 'class-wvs-term-meta.php' );
-					require_once $this->include_path( 'template-functions.php' );
 					require_once $this->include_path( 'functions.php' );
 					require_once $this->include_path( 'hooks.php' );
-					require_once $this->include_path( 'settings.php' );
 				}
 			}
 			

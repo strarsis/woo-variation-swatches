@@ -22,7 +22,6 @@ includes
 languages
 package.json
 README.txt
-templates
 webpack.mix.js`;
 
         let includes = list.split("\n");

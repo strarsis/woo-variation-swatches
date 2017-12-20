@@ -16,42 +16,42 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../woo-variation-swatches.php:108
+#: ../woo-variation-swatches.php:105
 msgid "Choose an Image"
 msgstr ""
 
-#: ../woo-variation-swatches.php:109
+#: ../woo-variation-swatches.php:106
 msgid "Use Image"
 msgstr ""
 
-#: ../woo-variation-swatches.php:110
+#: ../woo-variation-swatches.php:107
 msgid "Add Media"
 msgstr ""
 
-#: ../woo-variation-swatches.php:155
+#: ../woo-variation-swatches.php:152
 msgid "View Documentation"
 msgstr ""
 
-#: ../woo-variation-swatches.php:155
+#: ../woo-variation-swatches.php:152
 msgid "Documentation"
 msgstr ""
 
-#: ../woo-variation-swatches.php:156, ../woo-variation-swatches.php:156
+#: ../woo-variation-swatches.php:153, ../woo-variation-swatches.php:153
 msgid "Support"
 msgstr ""
 
-#: ../woo-variation-swatches.php:187
+#: ../woo-variation-swatches.php:184
 msgid "Please check PHP version requirement."
 msgstr ""
 
-#: ../woo-variation-swatches.php:189
+#: ../woo-variation-swatches.php:186
 msgid "It's required to use latest version of PHP to use <strong>Woo Variation Swatches</strong>."
 msgstr ""
 
-#: ../woo-variation-swatches.php:199
+#: ../woo-variation-swatches.php:196
 msgid "WooCommerce"
 msgstr ""
 
-#: ../woo-variation-swatches.php:201
+#: ../woo-variation-swatches.php:198
 msgid "<strong>Woo Variation Switcher</strong> is an add-on of "
 msgstr ""

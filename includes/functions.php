@@ -323,6 +323,8 @@
 	// Get a Attribute taxonomy values
 	//-------------------------------------------------------------------------------
  
+    // @TODO: See wc_attribute_taxonomy_id_by_name function and wc_get_attribute
+    
 	if ( ! function_exists( 'wvs_get_wc_attribute_taxonomy' ) ):
 		function wvs_get_wc_attribute_taxonomy( $attribute_name ) {
 			

@@ -12,7 +12,11 @@ Beautiful Color, Image and Buttons Variation Swatches For WooCommerce Product At
 
 == Description ==
 
-Woo Variation Swatches is easy to use WooCommerce product variation swatches plugin. It offers an aesthetic and professional experience to select attributes for variation products. It turns the product variation select options fields into radio images, colors, and label. It means with the help of this powerful WooCommerce color or image variation swatches plugin, you can show product variation items in images, colors, and label. So, you can say goodbye to dropdown product attribute fields. Woo Variation Swatches not only offers the color, image and label attributes in the single WooCommerce product. It also enables them in product quick view. If you're using WooCommerce themes like Flatsome that comes with default Quick View option, you don’t need to hassle to load color and image swatches for variable product attributes in quick view separately.
+[youtube https://www.youtube.com/watch?v=nO3Ui90SixE]
+
+Woo Variation Swatches is easy to use WooCommerce product variation swatches plugin. It offers an aesthetic and professional experience to select attributes for variation products. It turns the product variation select options fields into radio images, colors, and label. It means with the help of this powerful WooCommerce color or image variation swatches plugin, you can show product variation items in images, colors, and label. So, you can say goodbye to dropdown product attribute fields.
+
+Woo Variation Swatches not only offers the color, image and label attributes in the single WooCommerce product. It also enables them in product quick view. If you're using WooCommerce themes like Flatsome that comes with default Quick View option, you don’t need to hassle to load color and image swatches for variable product attributes in quick view separately.
 
 = Key Feature Comes with this Plugin =
 
@@ -71,11 +75,11 @@ Even this plugin has been installed and activated on your site, variable product
 5. Go back to manage attributes screen. Click the cog icon on the right side of attribute to start editing terms.
 6. Start adding new terms or editing exists terms. There is will be a new option at the end of form that let you choose the color, upload image or choose as a button for those terms.
 
-= Is it compatible with Any kinds of Woocommerce Theme? =
+= Is it compatible with Any kinds of WooCommerce Theme? =
 
 Yes, it's compatible with woocommerce theme including Flatsome. But sometimes it may require small css tweak.
 
-= Does it show in product Quickview? =
+= Does it show in product QuickView? =
 
 Yes, it supports any kinds of product quick view.
 

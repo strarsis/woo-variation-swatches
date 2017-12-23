@@ -95,6 +95,10 @@ Yes, it supports any kinds of product quick view.
 
 == Changelog ==
 
+= 1.0.1 =
+
+* Fix text type select list
+
 = 1.0.0 =
 
 * Initial release

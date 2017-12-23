@@ -61,7 +61,7 @@
 			endif; // function_exists( 'wc_get_attribute_taxonomies' )
 		}
 	}
- 
+	
 	//-------------------------------------------------------------------------------
 	// Extra Product Option Terms
 	//-------------------------------------------------------------------------------
@@ -318,13 +318,13 @@
 			echo '</ul>';
 		}
 	endif;
- 
+	
 	//-------------------------------------------------------------------------------
 	// Get a Attribute taxonomy values
 	//-------------------------------------------------------------------------------
- 
-    // @TODO: See wc_attribute_taxonomy_id_by_name function and wc_get_attribute
-    
+	
+	// @TODO: See wc_attribute_taxonomy_id_by_name function and wc_get_attribute
+	
 	if ( ! function_exists( 'wvs_get_wc_attribute_taxonomy' ) ):
 		function wvs_get_wc_attribute_taxonomy( $attribute_name ) {
 			
@@ -375,36 +375,33 @@
 	//-------------------------------------------------------------------------------
 	// Generate Option HTML
 	//-------------------------------------------------------------------------------
- 
+	
 	if ( ! function_exists( 'wvs_variation_attribute_options_html' ) ):
 		function wvs_variation_attribute_options_html( $html, $args ) {
 			ob_start();
 			if ( wvs_wc_product_has_attribute_type( 'color', $args[ 'attribute' ] ) ):
-				
 				wvs_color_variation_attribute_options( array(
 					                                       'options'   => $args[ 'options' ],
 					                                       'attribute' => $args[ 'attribute' ],
 					                                       'product'   => $args[ 'product' ],
 					                                       'selected'  => $args[ 'selected' ]
 				                                       ) );
-
             elseif ( wvs_wc_product_has_attribute_type( 'image', $args[ 'attribute' ] ) ):
-				
 				wvs_image_variation_attribute_options( array(
 					                                       'options'   => $args[ 'options' ],
 					                                       'attribute' => $args[ 'attribute' ],
 					                                       'product'   => $args[ 'product' ],
 					                                       'selected'  => $args[ 'selected' ]
 				                                       ) );
-
             elseif ( wvs_wc_product_has_attribute_type( 'button', $args[ 'attribute' ] ) ):
-				
 				wvs_button_variation_attribute_options( array(
 					                                        'options'   => $args[ 'options' ],
 					                                        'attribute' => $args[ 'attribute' ],
 					                                        'product'   => $args[ 'product' ],
 					                                        'selected'  => $args[ 'selected' ]
 				                                        ) );
+			else:
+				echo $html;
 			endif;
 			
 			return ob_get_clean();

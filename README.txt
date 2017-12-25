@@ -12,7 +12,7 @@ Beautiful Color, Image and Buttons Variation Swatches For WooCommerce Product At
 
 == Description ==
 
-[youtube https://www.youtube.com/watch?v=nO3Ui90SixE]
+[youtube https://www.youtube.com/watch?v=BySSYFuqwls]
 
 Woo Variation Swatches is easy to use WooCommerce product variation swatches plugin. It offers an aesthetic and professional experience to select attributes for variation products. It turns the product variation select options fields into radio images, colors, and label. It means with the help of this powerful WooCommerce color or image variation swatches plugin, you can show product variation items in images, colors, and label. So, you can say goodbye to dropdown product attribute fields.
 
@@ -29,9 +29,10 @@ Woo Variation Swatches not only offers the color, image and label attributes in 
 * No extra option and no conclusion.
 
 = Links =
-* [Facebook User Group](https://www.facebook.com/groups/GetWooPlugins/)
-* [Website](https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches)
-* [Github](https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches)
+
+||||
+|:-:|:-:|:-:|
+| [Facebook Group](https://www.facebook.com/groups/GetWooPlugins/)  | [Github](https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches)  | [Website](https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches)   |
 
 == Installation ==
 

@@ -30,9 +30,7 @@ Woo Variation Swatches not only offers the color, image and label attributes in 
 
 = Links =
 
-||||
-|:-:|:-:|:-:|
-| [Facebook Group](https://www.facebook.com/groups/GetWooPlugins/)  | [Github](https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches)  | [Website](https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches)   |
+> [Facebook Group](https://www.facebook.com/groups/GetWooPlugins/) | [Github](https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches) | [Website](https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches)
 
 == Installation ==
 

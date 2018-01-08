@@ -26,11 +26,37 @@ Woo Variation Swatches not only offers the color, image and label attributes in 
 * Enable attributes into color swatches
 * Enable attributes into label/text/button swatches
 * Control attribute setting globally.
+* Compatible with popular themes and plugins
 * No extra option and no conclusion.
 
-= Links =
 
-> [Facebook Group](https://www.facebook.com/groups/GetWooPlugins/) | [Github](https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches) | [Website](https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches)
+= Officially tested plugins =
+
+* WPML 
+* Polylang
+
+= Officially tested WooCommerce Themes =
+
+* [Flatsome Theme](http://bit.ly/flatsomeyoutube)
+
+= Forum and Feature Request =
+
+<blockquote>
+<h4>For feature request and bug reporting</h4>
+<ul>
+<li>  <a href="http://bit.ly/getwoopluginsgroup">Join Our Facebook Group</a></li>
+</ul>
+<h4>For contriubtion</h4>
+<ul>
+<li>  <a href="https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches">Join Project in Github</a></li>
+</ul>
+<h4>For more information</h4>
+<ul>
+<li>  <a href="https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches">Visit Our Official Website</a></li>
+</ul>
+<p></p>
+</blockquote>
+
 
 == Installation ==
 

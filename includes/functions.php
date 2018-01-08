@@ -18,6 +18,49 @@
 	endif;
 	
 	//-------------------------------------------------------------------------------
+	// Add settings
+	//-------------------------------------------------------------------------------
+	
+	if ( ! function_exists( 'wvs_settings' ) ):
+		function wvs_settings() {
+			woo_variation_swatches()->add_setting( 'general', esc_html__( 'General', 'woo-variation-swatches' ), array(
+				array(
+					'title'  => esc_html__( 'Display Section', 'woo-variation-swatches' ),
+					'desc'   => esc_html__( 'Simply change some visual styles', 'woo-variation-swatches' ),
+					'fields' => array(
+						array(
+							'id'      => 'tooltip',
+							'type'    => 'checkbox',
+							'title'   => esc_html__( 'Tooltip', 'woo-variation-swatches' ),
+							'desc'    => esc_html__( 'Show / Hide tooltip on each product attribute.', 'woo-variation-swatches' ),
+							'default' => TRUE
+						),
+						array(
+							'id'      => 'style',
+							'type'    => 'radio',
+							'title'   => esc_html__( 'Shape style', 'woo-variation-swatches' ),
+							'desc'    => esc_html__( 'Attribute Shape Style', 'woo-variation-swatches' ),
+							'options' => array(
+								'rounded' => esc_html__( 'Rounded Shape', 'woo-variation-swatches' ),
+								'squared' => esc_html__( 'Squared Shape', 'woo-variation-swatches' )
+							),
+							'default' => 'rounded'
+						),
+						array(
+							'id'      => 'stylesheet',
+							'type'    => 'checkbox',
+							'title'   => esc_html__( 'Stylesheet', 'woo-variation-swatches' ),
+							'desc'    => esc_html__( 'Enable / Disable plugin default Stylesheet', 'woo-variation-swatches' ),
+							'default' => TRUE
+						)
+					)
+				)
+			), TRUE );
+		}
+	
+	endif;
+	
+	//-------------------------------------------------------------------------------
 	// Add WooCommerce taxonomy Meta
 	//-------------------------------------------------------------------------------
 	
@@ -101,7 +144,6 @@
 	//-------------------------------------------------------------------------------
 	
 	if ( ! function_exists( 'wvs_color_variation_attribute_options' ) ) :
-		
 		function wvs_color_variation_attribute_options( $args = array() ) {
 			
 			$args = wp_parse_args( $args, array(
@@ -160,7 +202,7 @@
 							$get_term_meta  = sanitize_hex_color( get_term_meta( $term->term_id, 'product_attribute_color', TRUE ) );
 							$selected_class = ( sanitize_title( $args[ 'selected' ] ) == $term->slug ) ? 'selected' : '';
 							?>
-                            <li data-toggle="tooltip" data-placement="top" class="variable-item color-variable-item color-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span style="background-color:<?php echo esc_attr( $get_term_meta ) ?>;"></span></li>
+                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item color-variable-item color-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?> <?php echo woo_variation_swatches()->get_option( 'style' ) ?>-style" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span style="background-color:<?php echo esc_attr( $get_term_meta ) ?>;"></span></li>
 							<?php
 						}
 					}
@@ -168,7 +210,6 @@
 			}
 			echo '</ul>';
 		}
-	
 	endif;
 	
 	//-------------------------------------------------------------------------------
@@ -176,7 +217,6 @@
 	//-------------------------------------------------------------------------------
 	
 	if ( ! function_exists( 'wvs_image_variation_attribute_options' ) ) :
-		
 		function wvs_image_variation_attribute_options( $args = array() ) {
 			
 			$args = wp_parse_args( $args, array(
@@ -225,7 +265,7 @@
 			
 			echo '</select>';
 			
-			echo '<ul class="list-inline variable-items-wrapper image-variable-wrapper">';
+			echo '<ul class="list-inline variable-items-wrapper image-variable-wrapper ">';
 			if ( ! empty( $options ) ) {
 				if ( $product && taxonomy_exists( $attribute ) ) {
 					$terms = wc_get_product_terms( $product->get_id(), $attribute, array( 'fields' => 'all' ) );
@@ -236,7 +276,8 @@
 							$image          = wp_get_attachment_image_url( $attachment_id );
 							$selected_class = ( sanitize_title( $args[ 'selected' ] ) == $term->slug ) ? 'selected' : '';
 							?>
-                            <li data-toggle="tooltip" data-placement="top" class="variable-item image-variable-item image-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><img alt="<?php echo esc_html( $term->name ) ?>" src="<?php echo esc_url( $image ) ?>"></li>
+                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item image-variable-item image-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?> <?php echo woo_variation_swatches()->get_option( 'style' ) ?>-style" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><img alt="<?php echo esc_html( $term->name ) ?>" src="<?php echo esc_url( $image ) ?>">
+                            </li>
 							<?php
 						}
 					}
@@ -251,7 +292,6 @@
 	//-------------------------------------------------------------------------------
 	
 	if ( ! function_exists( 'wvs_button_variation_attribute_options' ) ) :
-		
 		function wvs_button_variation_attribute_options( $args = array() ) {
 			
 			$args = wp_parse_args( $args, array(
@@ -309,7 +349,7 @@
 						if ( in_array( $term->slug, $options ) ) {
 							$selected_class = ( sanitize_title( $args[ 'selected' ] ) == $term->slug ) ? 'selected' : '';
 							?>
-                            <li data-toggle="tooltip" data-placement="top" class="variable-item button-variable-item image-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span><?php echo esc_html( $term->name ) ?></span></li>
+                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item button-variable-item image-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?> <?php echo woo_variation_swatches()->get_option( 'style' ) ?>-style" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span><?php echo esc_html( $term->name ) ?></span></li>
 							<?php
 						}
 					}

@@ -190,8 +190,8 @@
                                 </div>
                                 <div class="button-wrapper">
                                     <input type="hidden" id="<?php echo $field[ 'id' ] ?>" name="<?php echo $field[ 'id' ] ?>" value="<?php echo esc_attr( $field[ 'value' ] ) ?>"/>
-                                    <button type="button" class="wvs_upload_image_button button button-primary button-small"><?php esc_html_e( 'Upload / Add image', 'hippo-theme-plugin' ); ?></button>
-                                    <button type="button" style="<?php echo( empty( $field[ 'value' ] ) ? 'display:none' : '' ) ?>" class="wvs_remove_image_button button button-danger button-small"><?php esc_html_e( 'Remove image', 'hippo-theme-plugin' ); ?></button>
+                                    <button type="button" class="wvs_upload_image_button button button-primary button-small"><?php esc_html_e( 'Upload / Add image', 'woo-variation-swatches' ); ?></button>
+                                    <button type="button" style="<?php echo( empty( $field[ 'value' ] ) ? 'display:none' : '' ) ?>" class="wvs_remove_image_button button button-danger button-small"><?php esc_html_e( 'Remove image', 'woo-variation-swatches' ); ?></button>
                                 </div>
                             </div>
 							<?php

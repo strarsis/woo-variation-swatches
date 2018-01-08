@@ -1,6 +1,6 @@
 === Woo Variation Swatches ===
 Contributors: EmranAhmed, wpeshaan
-Tags: woocommerce, variation swatches, product attributes, product color, product size, variable product attributes, variation product swatches, color variation swatch, image variation swatch
+Tags: woocommerce variation, woocommerce, variation swatches, woocommerce attributes, product attributes, product color, product size, variable product attributes, variation product swatches, color variation swatch, image variation swatch
 Requires at least: 4.8
 Tested up to: 4.9
 Requires PHP: 5.6
@@ -58,15 +58,14 @@ In the free WooCommerce attribute variation plugin, besides creating size, brand
 <ul>
 <li>  <a href="http://bit.ly/getwoopluginsgroup">Join Our Facebook Group</a></li>
 </ul>
-<h4>For contriubtion</h4>
+<h4>For contribution</h4>
 <ul>
-<li>  <a href="https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches">Join Project in Github</a></li>
+<li><a href="https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches">Join Project in Github</a></li>
 </ul>
 <h4>For more information</h4>
 <ul>
-<li>  <a href="https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches">Visit Our Official Website</a></li>
+<li><a href="https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches">Visit Our Official Website</a></li>
 </ul>
-<p></p>
 </blockquote>
 
 
@@ -129,8 +128,15 @@ Yes, it supports any kinds of product quick view.
 5. Attribute Color Type Preview
 6. Attribute Button / Label Type Preview
 7. Variation Product Edit view
+8. Settings Panel
 
 == Changelog ==
+
+= 1.0.2 =
+
+* Added tooltip
+* Default stylesheet enable/disable option
+* Display style added to show Rounded / Squared shaped style
 
 = 1.0.1 =
 

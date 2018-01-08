@@ -9,5 +9,6 @@ assets/js/*.js.map
 *.zip
 woo-variation-swatches
 mix-manifest.json
+package-lock.json
 fonts/*/
 images/*/

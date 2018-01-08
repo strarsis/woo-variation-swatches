@@ -77,3 +77,4 @@ mix.js(`src/js/frontend.js`, `assets/js/frontend${min}.js`);
 mix.babel(`src/js/FormFieldDependency.js`, `assets/js/form-field-dependency${min}.js`);
 mix.sass(`src/scss/backend.scss`, `assets/css/admin${min}.css`);
 mix.sass(`src/scss/frontend.scss`, `assets/css/frontend${min}.css`);
+mix.sass(`src/scss/tooltip.scss`, `assets/css/frontend-tooltip${min}.css`);

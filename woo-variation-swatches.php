@@ -23,8 +23,9 @@
 			protected $_version = '1.0.2';
 			
 			protected static $_instance = NULL;
+			private          $_settings_api;
 			
-			public static function init() {
+			public static function instance() {
 				if ( is_null( self::$_instance ) ) {
 					self::$_instance = new self();
 				}
@@ -33,7 +34,6 @@
 			}
 			
 			public function __construct() {
-				
 				$this->constants();
 				$this->includes();
 				$this->hooks();
@@ -41,7 +41,6 @@
 			}
 			
 			public function constants() {
-				
 				$this->define( 'WVS_PLUGIN_VERSION', esc_attr( $this->_version ) );
 				$this->define( 'WVS_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
 				$this->define( 'WVS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
@@ -63,7 +62,6 @@
 					require_once $this->include_path( 'class-wvs-term-meta.php' );
 					require_once $this->include_path( 'functions.php' );
 					require_once $this->include_path( 'hooks.php' );
-					require_once $this->include_path( 'settings.php' );
 				}
 			}
 			
@@ -81,7 +79,7 @@
 			
 			public function hooks() {
 				add_action( 'init', array( $this, 'language' ) );
-				add_action( 'init', array( $this, 'settings_api' ) );
+				add_action( 'init', array( $this, 'settings_api' ), 5 );
 				
 				add_action( 'admin_notices', array( $this, 'php_requirement_notice' ) );
 				add_action( 'admin_notices', array( $this, 'wc_requirement_notice' ) );
@@ -95,7 +93,14 @@
 			public function enqueue_scripts() {
 				$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 				wp_enqueue_script( 'woo-variation-swatches', $this->assets_uri( "/js/frontend{$suffix}.js" ), array( 'jquery' ), $this->version(), TRUE );
-				wp_enqueue_style( 'woo-variation-swatches', $this->assets_uri( "/css/frontend{$suffix}.css" ), array(), $this->version() );
+				
+				if ( $this->get_option( 'stylesheet' ) ) {
+					wp_enqueue_style( 'woo-variation-swatches', $this->assets_uri( "/css/frontend{$suffix}.css" ), array(), $this->version() );
+				}
+				
+				if ( $this->get_option( 'tooltip' ) ) {
+					wp_enqueue_style( 'woo-variation-swatches-tooltip', $this->assets_uri( "/css/frontend-tooltip{$suffix}.css" ), array(), $this->version() );
+				}
 			}
 			
 			public function admin_enqueue_scripts() {
@@ -117,7 +122,9 @@
 			}
 			
 			public function settings_api() {
-				return new WVS_Settings_API( $this );
+				$this->_settings_api = new WVS_Settings_API( $this );
+				
+				return $this->_settings_api;
 			}
 			
 			public function add_setting( $tab_id, $tab_title, $tab_sections, $active = FALSE ) {
@@ -150,6 +157,10 @@
 					
 					return $fields;
 				} );
+			}
+			
+			public function get_option( $id ) {
+				return $this->_settings_api->get_option( $id );
 			}
 			
 			public function add_term_meta( $taxonomy, $post_type, $fields ) {
@@ -353,7 +364,7 @@
 		}
 		
 		function woo_variation_swatches() {
-			return Woo_Variation_Swatches::init();
+			return Woo_Variation_Swatches::instance();
 		}
 		
 		add_action( 'plugins_loaded', 'woo_variation_swatches' );

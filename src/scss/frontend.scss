@@ -11,15 +11,22 @@
     border          : 1px solid rgba(0, 0, 0, 0.2);
     width           : 30px;
     height          : 30px;
-    overflow        : hidden;
     display         : flex;
     justify-content : center;
     align-items     : center;
     &.color-variable-item,
     &.button-variable-item {
-      border-radius : 50%;
-      span {
+      &.rounded-style {
         border-radius : 50%;
+        span {
+          border-radius : 50%;
+          }
+        }
+      &.squared-style {
+        border-radius : 0;
+        span {
+          border-radius : 0;
+          }
         }
       }
 

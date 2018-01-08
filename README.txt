@@ -29,15 +29,22 @@ Woo Variation Swatches not only offers the color, image and label attributes in 
 * Compatible with popular themes and plugins
 * No extra option and no conclusion.
 
+= Sites Built With Woo Variation Swatches Plugin =
+<blockquote>
+<ul>
+<li>  <a href="http://bit.ly/woovs-demo-01">plotnikoff.ru</a></li>
+</ul>
+
+</blockquote>
+
+= Officially tested WooCommerce Themes =
+
+* [Flatsome Theme](http://bit.ly/flatsomeyoutube)
 
 = Officially tested plugins =
 
 * WPML 
 * Polylang
-
-= Officially tested WooCommerce Themes =
-
-* [Flatsome Theme](http://bit.ly/flatsomeyoutube)
 
 = Forum and Feature Request =
 

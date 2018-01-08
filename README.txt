@@ -18,6 +18,8 @@ Woo Variation Swatches is easy to use WooCommerce product variation swatches plu
 
 Woo Variation Swatches not only offers the color, image and label attributes in the single WooCommerce product. It also enables them in product quick view. If you're using WooCommerce themes like Flatsome that comes with default Quick View option, you don’t need to hassle to load color and image swatches for variable product attributes in quick view separately.
 
+In the free WooCommerce attribute variation plugin, besides creating size, brand, image, color, and label variation swatches, you can handle the swatches shape style <strong>Rounded and Circle</strong>. On top of that, it allows you beautiful tooltips on variation swatch hover.  Based on your requirement you enable and disable hover from the settings. To maximize and personalize your development process,  the product attributes swatches comes an option to disable default plugin stylesheet so that you can personally write your own CSS. 
+
 = Key Feature Comes with this Plugin =
 
 * Work on variable product
@@ -27,6 +29,9 @@ Woo Variation Swatches not only offers the color, image and label attributes in 
 * Enable attributes into label/text/button swatches
 * Control attribute setting globally.
 * Compatible with popular themes and plugins
+* Option to select ROUNDED and CIRCLED variation shape.
+* Flexible tooltip insert and dispaly settings
+* Option to disable plugin stylesheet.  
 * No extra option and no conclusion.
 
 = Sites Built With Woo Variation Swatches Plugin =

@@ -1,4 +1,4 @@
-# Copyright (C) 2017 Woo Variation Swatches
+# Copyright (C) 2018 Woo Variation Swatches
 # This file is distributed under the same license as the Woo Variation Swatches package.
 msgid ""
 msgstr ""
@@ -16,42 +16,50 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../woo-variation-swatches.php:105
+#: ../woo-variation-swatches.php:116
 msgid "Choose an Image"
 msgstr ""
 
-#: ../woo-variation-swatches.php:106
+#: ../woo-variation-swatches.php:117
 msgid "Use Image"
 msgstr ""
 
-#: ../woo-variation-swatches.php:107
+#: ../woo-variation-swatches.php:118
 msgid "Add Media"
 msgstr ""
 
-#: ../woo-variation-swatches.php:152
+#: ../woo-variation-swatches.php:173
 msgid "View Documentation"
 msgstr ""
 
-#: ../woo-variation-swatches.php:152
+#: ../woo-variation-swatches.php:173
 msgid "Documentation"
 msgstr ""
 
-#: ../woo-variation-swatches.php:153, ../woo-variation-swatches.php:153
+#: ../woo-variation-swatches.php:174, ../woo-variation-swatches.php:174
 msgid "Support"
 msgstr ""
 
-#: ../woo-variation-swatches.php:184
+#: ../woo-variation-swatches.php:175
+msgid "Review"
+msgstr ""
+
+#: ../woo-variation-swatches.php:205
 msgid "Please check PHP version requirement."
 msgstr ""
 
-#: ../woo-variation-swatches.php:186
+#: ../woo-variation-swatches.php:207
 msgid "It's required to use latest version of PHP to use <strong>Woo Variation Swatches</strong>."
 msgstr ""
 
-#: ../woo-variation-swatches.php:196
+#: ../woo-variation-swatches.php:217
 msgid "WooCommerce"
 msgstr ""
 
-#: ../woo-variation-swatches.php:198
+#: ../woo-variation-swatches.php:219
 msgid "<strong>Woo Variation Switcher</strong> is an add-on of "
+msgstr ""
+
+#: ../woo-variation-swatches.php:315
+msgid "Woo Variation Swatches Plugin try to load \"%s\" but template \"%s\" was not found."
 msgstr ""

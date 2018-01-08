@@ -77,9 +77,11 @@ const PluginHelper = (($) => {
         }
 
         static SelectWoo(selector = 'select.wvs-selectwoo') {
-            $(selector).selectWoo({
-                allowClear : true
-            });
+            if ($().selectWoo) {
+                $(selector).selectWoo({
+                    allowClear : true
+                });
+            }
         }
 
         static ColorPicker(selector = 'input.wvs-color-picker') {

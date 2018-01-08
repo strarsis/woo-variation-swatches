@@ -4,7 +4,7 @@
 	 * Plugin URI: https://wordpress.org/plugins/woo-variation-swatches/
 	 * Description: WooCommerce Product Variation Swatches
 	 * Author: Emran Ahmed
-	 * Version: 1.0.1
+	 * Version: 1.0.2
 	 * Domain Path: /languages
 	 * Requires at least: 4.8
 	 * Tested up to: 4.9
@@ -20,7 +20,7 @@
 		
 		final class Woo_Variation_Swatches {
 			
-			protected $_version = '1.0.1';
+			protected $_version = '1.0.2';
 			
 			protected static $_instance = NULL;
 			
@@ -59,9 +59,11 @@
 			
 			public function includes() {
 				if ( $this->is_required_php_version() ) {
+					require_once $this->include_path( 'class-wvs-settings-api.php' );
 					require_once $this->include_path( 'class-wvs-term-meta.php' );
 					require_once $this->include_path( 'functions.php' );
 					require_once $this->include_path( 'hooks.php' );
+					require_once $this->include_path( 'settings.php' );
 				}
 			}
 			
@@ -78,12 +80,16 @@
 			}
 			
 			public function hooks() {
+				add_action( 'init', array( $this, 'language' ) );
+				add_action( 'init', array( $this, 'settings_api' ) );
+				
 				add_action( 'admin_notices', array( $this, 'php_requirement_notice' ) );
 				add_action( 'admin_notices', array( $this, 'wc_requirement_notice' ) );
-				add_action( 'init', array( $this, 'language' ) );
-				add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
+				
 				add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+				
+				add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
 			}
 			
 			public function enqueue_scripts() {
@@ -110,6 +116,10 @@
 				) );
 			}
 			
+			public function settings_api() {
+				return new WVS_Settings_API( $this );
+			}
+			
 			public function add_setting( $tab_id, $tab_title, $tab_sections, $active = FALSE ) {
 				// Example:
 				
@@ -128,7 +138,7 @@
 				//      ]
 				//    ] // fields end
 				//  ]
-				//])
+				//], active ? true | false)
 				
 				add_filter( 'wvs_settings', function ( $fields ) use ( $tab_id, $tab_title, $tab_sections, $active ) {
 					array_push( $fields, array(
@@ -148,10 +158,10 @@
 			
 			public function plugin_row_meta( $links, $file ) {
 				if ( $file == $this->basename() ) {
-					$row_meta = array(
-						'documentation' => '<a href="' . esc_url( apply_filters( 'wvs_documentation_url', '#' ) ) . '" title="' . esc_attr( esc_html__( 'View Documentation', 'woo-variation-swatches' ) ) . '">' . esc_html__( 'Documentation', 'woo-variation-swatches' ) . '</a>',
-						'support'       => '<a href="' . esc_url( apply_filters( 'wvs_support_url', 'https://wordpress.org/support/plugin/woo-variation-swatches/' ) ) . '" title="' . esc_attr( esc_html__( 'Support', 'woo-variation-swatches' ) ) . '">' . esc_html__( 'Support', 'woo-variation-swatches' ) . '</a>',
-					);
+					$review_url                  = "https://wordpress.org/support/plugin/woo-variation-swatches/reviews/?rate=5#new-post";
+					$row_meta[ 'documentation' ] = '<a href="' . esc_url( apply_filters( 'wvs_documentation_url', '#' ) ) . '" title="' . esc_attr( esc_html__( 'View Documentation', 'woo-variation-swatches' ) ) . '">' . esc_html__( 'Documentation', 'woo-variation-swatches' ) . '</a>';
+					$row_meta[ 'support' ]       = '<a href="' . esc_url( apply_filters( 'wvs_support_url', 'https://wordpress.org/support/plugin/woo-variation-swatches/' ) ) . '" title="' . esc_attr( esc_html__( 'Support', 'woo-variation-swatches' ) ) . '">' . esc_html__( 'Support', 'woo-variation-swatches' ) . '</a>';
+					$row_meta[ 'rating' ]        = sprintf( '<span class="gwp-rate-stars"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg></span>', esc_url( $review_url ), esc_html__( 'Review', 'woo-variation-swatches' ) );
 					
 					return array_merge( $links, $row_meta );
 				}
@@ -251,6 +261,94 @@
 			
 			public function template_uri() {
 				return apply_filters( 'wvs_template_uri', untrailingslashit( $this->plugin_uri() ) . '/templates' );
+			}
+			
+			public function locate_template( $template_name, $third_party_path = FALSE ) {
+				
+				$template_name = ltrim( $template_name, '/' );
+				$template_path = $this->template_override_dir();
+				$default_path  = $this->template_path();
+				
+				if ( $third_party_path && is_string( $third_party_path ) ) {
+					$default_path = untrailingslashit( $third_party_path );
+				}
+				
+				// Look within passed path within the theme - this is priority.
+				$template = locate_template( array(
+					                             trailingslashit( $template_path ) . trim( $template_name ),
+					                             'wvs-template-' . trim( $template_name )
+				                             ) );
+				
+				// Get default template/
+				if ( empty( $template ) ) {
+					$template = trailingslashit( $default_path ) . trim( $template_name );
+				}
+				
+				// Return what we found.
+				return apply_filters( 'wvs_locate_template', $template, $template_name, $template_path );
+			}
+			
+			public function get_template( $template_name, $template_args = array(), $third_party_path = FALSE ) {
+				
+				$template_name = ltrim( $template_name, '/' );
+				
+				$located = apply_filters( 'wvs_get_template', $this->locate_template( $template_name, $third_party_path ) );
+				
+				do_action( 'wvs_before_get_template', $template_name, $template_args );
+				
+				extract( $template_args );
+				
+				if ( file_exists( $located ) ) {
+					include $located;
+				} else {
+					trigger_error( sprintf( esc_html__( 'Woo Variation Swatches Plugin try to load "%s" but template "%s" was not found.', 'woo-variation-swatches' ), $located, $template_name ), E_USER_WARNING );
+				}
+				
+				do_action( 'wvs_after_get_template', $template_name, $template_args );
+			}
+			
+			public function get_theme_file_path( $file, $third_party_path = FALSE ) {
+				
+				$file         = ltrim( $file, '/' );
+				$template_dir = $this->template_override_dir();
+				$default_path = $this->template_path();
+				
+				if ( $third_party_path && is_string( $third_party_path ) ) {
+					$default_path = untrailingslashit( $third_party_path );
+				}
+				
+				// @TODO: Use get_theme_file_path
+				if ( file_exists( get_stylesheet_directory() . '/' . $template_dir . '/' . $file ) ) {
+					$path = get_stylesheet_directory() . '/' . $template_dir . '/' . $file;
+				} elseif ( file_exists( get_template_directory() . '/' . $template_dir . '/' . $file ) ) {
+					$path = get_template_directory() . '/' . $template_dir . '/' . $file;
+				} else {
+					$path = trailingslashit( $default_path ) . $file;
+				}
+				
+				return apply_filters( 'wvs_get_theme_file_path', $path, $file );
+			}
+			
+			public function get_theme_file_uri( $file, $third_party_uri = FALSE ) {
+				
+				$file         = ltrim( $file, '/' );
+				$template_dir = $this->template_override_dir();
+				$default_uri  = $this->template_uri();
+				
+				if ( $third_party_uri && is_string( $third_party_uri ) ) {
+					$default_uri = untrailingslashit( $third_party_uri );
+				}
+				
+				// @TODO: Use get_theme_file_uri
+				if ( file_exists( get_stylesheet_directory() . '/' . $template_dir . '/' . $file ) ) {
+					$uri = get_stylesheet_directory_uri() . '/' . $template_dir . '/' . $file;
+				} elseif ( file_exists( get_template_directory() . '/' . $template_dir . '/' . $file ) ) {
+					$uri = get_template_directory_uri() . '/' . $template_dir . '/' . $file;
+				} else {
+					$uri = trailingslashit( $default_uri ) . $file;
+				}
+				
+				return apply_filters( 'wvs_get_theme_file_uri', $uri, $file );
 			}
 		}
 		

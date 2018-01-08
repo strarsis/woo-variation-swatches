@@ -30,3 +30,22 @@
     vertical-align : top;
     }
   }
+
+.gwp-rate-stars {
+  display  : inline-block;
+  color    : #FFB900;
+  position : relative;
+  top      : 3px;
+
+  svg, svg a {
+    fill   : #FFB900;
+    stroke : #FFB900;
+    cursor : pointer;
+    &:hover {
+      fill : #FFB900;
+      ~ svg, ~ svg a {
+        fill : none;
+        }
+      }
+    }
+  }

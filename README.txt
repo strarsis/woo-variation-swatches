@@ -16,7 +16,7 @@ Beautiful Color, Image and Buttons Variation Swatches For WooCommerce Product At
 
 Woo Variation Swatches is easy to use WooCommerce product variation swatches plugin. It offers an aesthetic and professional experience to select attributes for variation products. It turns the product variation select options fields into radio images, colors, and label. It means with the help of this powerful WooCommerce color or image variation swatches plugin, you can show product variation items in images, colors, and label. So, you can say goodbye to dropdown product attribute fields.
 
-Woo Variation Swatches not only offers the color, image and label attributes in the single WooCommerce product. It also enables them in product quick view. If you're using WooCommerce themes like Flatsome that comes with default Quick View option, you don’t need to hassle to load color and image swatches for variable product attributes in quick view separately.
+WooCommerce Variation Swatches not only offers the color, image and label attributes in the single WooCommerce product. It also enables them in product quick view. If you're using WooCommerce themes like Flatsome that comes with default Quick View option, you don’t need to hassle to load color and image swatches for variable product attributes in quick view separately.
 
 In the free WooCommerce attribute variation plugin, besides creating size, brand, image, color, and label variation swatches, you can handle the swatches shape style <strong>Rounded and Circle</strong>. On top of that, it allows you beautiful tooltips on variation swatch hover.  Based on your requirement you enable and disable hover from the settings. To maximize and personalize your development process,  the product attributes swatches comes an option to disable default plugin stylesheet so that you can personally write your own CSS. 
 
@@ -38,8 +38,8 @@ In the free WooCommerce attribute variation plugin, besides creating size, brand
 <blockquote>
 <ul>
 <li>  <a href="http://bit.ly/woovs-demo-02">loja2passos.com.br</a> | Theme: Flatsome | Niche: Shoe Store </li>
-<li>  <a href="http://bit.ly/woovs-demo-01">plotnikoff.ru</a> Niche: Furniture and Home Appliances Store </li>
-<li>  <a href="http://bit.ly/woovs-demo-03">robinsongarden.co.uk</a> </li>
+<li>  <a href="http://bit.ly/woovs-demo-01">plotnikoff.ru</a> | Niche: Furniture and Home Appliances Store </li>
+<li>  <a href="http://bit.ly/woovs-demo-03">robinsongarden.co.uk</a> | Bespoke Furniture Store</li>
 </ul>
 
 </blockquote>

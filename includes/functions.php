@@ -202,7 +202,7 @@
 							$get_term_meta  = sanitize_hex_color( get_term_meta( $term->term_id, 'product_attribute_color', TRUE ) );
 							$selected_class = ( sanitize_title( $args[ 'selected' ] ) == $term->slug ) ? 'selected' : '';
 							?>
-                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item color-variable-item color-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?> <?php echo woo_variation_swatches()->get_option( 'style' ) ?>-style" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span style="background-color:<?php echo esc_attr( $get_term_meta ) ?>;"></span></li>
+                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item color-variable-item color-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span style="background-color:<?php echo esc_attr( $get_term_meta ) ?>;"></span></li>
 							<?php
 						}
 					}
@@ -276,7 +276,7 @@
 							$image          = wp_get_attachment_image_url( $attachment_id );
 							$selected_class = ( sanitize_title( $args[ 'selected' ] ) == $term->slug ) ? 'selected' : '';
 							?>
-                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item image-variable-item image-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?> <?php echo woo_variation_swatches()->get_option( 'style' ) ?>-style" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><img alt="<?php echo esc_html( $term->name ) ?>" src="<?php echo esc_url( $image ) ?>">
+                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item image-variable-item image-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><img alt="<?php echo esc_html( $term->name ) ?>" src="<?php echo esc_url( $image ) ?>">
                             </li>
 							<?php
 						}
@@ -349,7 +349,7 @@
 						if ( in_array( $term->slug, $options ) ) {
 							$selected_class = ( sanitize_title( $args[ 'selected' ] ) == $term->slug ) ? 'selected' : '';
 							?>
-                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item button-variable-item image-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?> <?php echo woo_variation_swatches()->get_option( 'style' ) ?>-style" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span><?php echo esc_html( $term->name ) ?></span></li>
+                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item button-variable-item image-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span><?php echo esc_html( $term->name ) ?></span></li>
 							<?php
 						}
 					}
@@ -370,7 +370,7 @@
 			
 			$transient = sprintf( 'wvs_get_wc_attribute_taxonomy_%s', $attribute_name );
 			
-			if ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || isset( $_GET[ 'wvs_clear' ] ) ) {
+			if ( ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || isset( $_GET[ 'wvs_clear_transient' ] ) ) {
 				delete_transient( $transient );
 			}
 			

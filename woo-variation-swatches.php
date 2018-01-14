@@ -4,7 +4,7 @@
 	 * Plugin URI: https://wordpress.org/plugins/woo-variation-swatches/
 	 * Description: WooCommerce Product Variation Swatches
 	 * Author: Emran Ahmed
-	 * Version: 1.0.2
+	 * Version: 1.0.3
 	 * Domain Path: /languages
 	 * Requires at least: 4.8
 	 * Tested up to: 4.9
@@ -20,7 +20,7 @@
 		
 		final class Woo_Variation_Swatches {
 			
-			protected $_version = '1.0.2';
+			protected $_version = '1.0.3';
 			
 			protected static $_instance = NULL;
 			private          $_settings_api;
@@ -88,6 +88,16 @@
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 				
 				add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
+				
+				add_filter( 'body_class', array( $this, 'body_class' ) );
+			}
+			
+			public function body_class( $classes ) {
+				array_push( $classes, sprintf( 'woo-variation-swatches-style-%s', $this->get_option( 'style' ) ) );
+				array_push( $classes, sprintf( 'woo-variation-swatches-tooltip-%s', $this->get_option( 'tooltip' ) ? 'enabled' : 'disabled' ) );
+				array_push( $classes, sprintf( 'woo-variation-swatches-stylesheet-%s', $this->get_option( 'stylesheet' ) ? 'enabled' : 'disabled' ) );
+				
+				return $classes;
 			}
 			
 			public function enqueue_scripts() {
@@ -172,7 +182,7 @@
 					$review_url                  = "https://wordpress.org/support/plugin/woo-variation-swatches/reviews/?rate=5#new-post";
 					$row_meta[ 'documentation' ] = '<a href="' . esc_url( apply_filters( 'wvs_documentation_url', '#' ) ) . '" title="' . esc_attr( esc_html__( 'View Documentation', 'woo-variation-swatches' ) ) . '">' . esc_html__( 'Documentation', 'woo-variation-swatches' ) . '</a>';
 					$row_meta[ 'support' ]       = '<a href="' . esc_url( apply_filters( 'wvs_support_url', 'https://wordpress.org/support/plugin/woo-variation-swatches/' ) ) . '" title="' . esc_attr( esc_html__( 'Support', 'woo-variation-swatches' ) ) . '">' . esc_html__( 'Support', 'woo-variation-swatches' ) . '</a>';
-					$row_meta[ 'rating' ]        = sprintf( '<span class="gwp-rate-stars"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg></span>', esc_url( $review_url ), esc_html__( 'Review', 'woo-variation-swatches' ) );
+					$row_meta[ 'rating' ]        = sprintf( '<a target="_blank" href="%1$s">%3$s</a> <span class="gwp-rate-stars"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><a xlink:href="%1$s" title="%2$s" target="_blank"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></a></svg></span>', esc_url( $review_url ), esc_html__( 'Review', 'woo-variation-swatches' ), esc_html__( 'Please Rate Us', 'woo-variation-swatches' ) );
 					
 					return array_merge( $links, $row_meta );
 				}

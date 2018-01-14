@@ -29,17 +29,17 @@ In the free WooCommerce attribute variation plugin, besides creating size, brand
 * Enable attributes into label/text/button swatches
 * Control attribute setting globally.
 * Compatible with popular themes and plugins
-* Option to select ROUNDED and CIRCLED variation shape.
-* Flexible tooltip insert and dispaly settings
-* Option to disable plugin stylesheet.  
+* Option to select ROUNDED and SQUARED variation shape.
+* Flexible tooltip insert and display settings
+* Option to disable default plugin stylesheet for theme developer.
 * No extra option and no conclusion.
 
 = Sites Built With Woo Variation Swatches Plugin =
 <blockquote>
 <ul>
-<li>  <a href="http://bit.ly/woovs-demo-02">loja2passos.com.br</a> | Theme: Flatsome | Niche: Shoe Store </li>
-<li>  <a href="http://bit.ly/woovs-demo-01">plotnikoff.ru</a> | Niche: Furniture and Home Appliances Store </li>
-<li>  <a href="http://bit.ly/woovs-demo-03">robinsongarden.co.uk</a> | Bespoke Furniture Store</li>
+<li><a href="http://bit.ly/woovs-demo-02">loja2passos.com.br</a> | Theme: Flatsome | Niche: Shoe Store </li>
+<li><a href="http://bit.ly/woovs-demo-01">plotnikoff.ru</a> | Niche: Furniture and Home Appliances Store </li>
+<li><a href="http://bit.ly/woovs-demo-03">robinsongarden.co.uk</a> | Bespoke Furniture Store</li>
 </ul>
 
 </blockquote>

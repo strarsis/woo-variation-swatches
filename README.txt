@@ -134,6 +134,11 @@ Yes, it supports any kinds of product quick view.
 
 == Changelog ==
 
+= 1.0.3 =
+
+* Added css class on body based on settings
+* Re styling
+
 = 1.0.2 =
 
 * Added tooltip

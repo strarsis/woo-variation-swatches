@@ -19,6 +19,8 @@
 	
 	//-------------------------------------------------------------------------------
 	// Add settings
+	// Support:
+	// add_theme_support( 'woo-variation-swatches', array( 'tooltip' => FALSE, 'stylesheet' => FALSE, 'style'=>'rounded' ) );
 	//-------------------------------------------------------------------------------
 	
 	if ( ! function_exists( 'wvs_settings' ) ):
@@ -31,8 +33,15 @@
 						array(
 							'id'      => 'tooltip',
 							'type'    => 'checkbox',
-							'title'   => esc_html__( 'Tooltip', 'woo-variation-swatches' ),
-							'desc'    => esc_html__( 'Show / Hide tooltip on each product attribute.', 'woo-variation-swatches' ),
+							'title'   => esc_html__( 'Enable Tooltip', 'woo-variation-swatches' ),
+							'desc'    => esc_html__( 'Enable / Disable plugin default tooltip on each product attribute.', 'woo-variation-swatches' ),
+							'default' => TRUE
+						),
+						array(
+							'id'      => 'stylesheet',
+							'type'    => 'checkbox',
+							'title'   => esc_html__( 'Enable Stylesheet', 'woo-variation-swatches' ),
+							'desc'    => esc_html__( 'Enable / Disable plugin default stylesheet', 'woo-variation-swatches' ),
 							'default' => TRUE
 						),
 						array(
@@ -46,13 +55,6 @@
 							),
 							'default' => 'rounded'
 						),
-						array(
-							'id'      => 'stylesheet',
-							'type'    => 'checkbox',
-							'title'   => esc_html__( 'Stylesheet', 'woo-variation-swatches' ),
-							'desc'    => esc_html__( 'Enable / Disable plugin default Stylesheet', 'woo-variation-swatches' ),
-							'default' => TRUE
-						)
 					)
 				)
 			), TRUE );

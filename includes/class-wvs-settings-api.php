@@ -11,10 +11,11 @@
 		
 		class WVS_Settings_API {
 			
-			private $setting_name = 'woo_variation_swatches';
+			private $setting_name       = 'woo_variation_swatches';
+			private $theme_feature_name = 'woo-variation-swatches';
 			private $slug;
 			private $plugin_class;
-			private $defaults     = array();
+			private $defaults           = array();
 			
 			private $fields = array();
 			
@@ -34,6 +35,8 @@
 				
 				add_action( 'admin_init', array( $this, 'settings_init' ), 90 );
 				
+				add_action( 'pre_update_option', array( $this, 'before_update' ), 10, 3 );
+				
 				add_filter( 'plugin_action_links_' . $this->plugin_class->basename(), array( $this, 'plugin_action_links' ) );
 				
 				add_action( 'wp_before_admin_bar_render', array( $this, 'add_admin_bar' ), 999 );
@@ -41,6 +44,14 @@
 				add_action( 'admin_footer', array( $this, 'admin_inline_js' ) );
 				
 				do_action( 'wvs_setting_api_init', $this );
+			}
+			
+			public function before_update( $value, $option, $old_value ) {
+				if ( $this->settings_name === $option ) {
+					// Here We will do magic :D
+				}
+				
+				return $value;
 			}
 			
 			public function admin_inline_js() {
@@ -104,7 +115,7 @@
 			}
 			
 			private function set_default( $key, $type, $value ) {
-				$this->defaults[ $key ] = array( 'type' => $type, 'value' => $value );
+				$this->defaults[ $key ] = array( 'id' => $key, 'type' => $type, 'value' => $value );
 			}
 			
 			private function get_default( $key ) {
@@ -128,7 +139,7 @@
 						$section[ 'fields' ] = apply_filters( 'wvs_settings_fields', $section[ 'fields' ], $section, $tab );
 						
 						foreach ( $section[ 'fields' ] as $field ) {
-							$field[ 'default' ] = isset( $field[ 'default' ] ) ? $field[ 'default' ] : '';
+							$field[ 'default' ] = isset( $field[ 'default' ] ) ? $field[ 'default' ] : NULL;
 							$this->set_default( $field[ 'id' ], $field[ 'type' ], $field[ 'default' ] );
 						}
 					}
@@ -137,19 +148,20 @@
 			
 			public function get_option( $option ) {
 				$default = $this->get_default( $option );
-				$options = get_option( $this->settings_name, wp_list_pluck( $this->get_defaults(), 'value' ) );
-				if ( isset( $options[ $option ] ) ) {
-					if ( $default[ 'type' ] === 'checkbox' ) {
-						return apply_filters( 'wvs_settings_get_option', TRUE, $option, $options, $default );
-					} else {
-						return apply_filters( 'wvs_settings_get_option', $options[ $option ], $option, $options, $default );
-					}
+				// $all_defaults = wp_list_pluck( $this->get_defaults(), 'value' );
+				$options = get_option( $this->settings_name );
+				$is_new  = ( ! is_array( $options ) && is_bool( $options ) );
+				
+				// Theme Support
+				if ( current_theme_supports( $this->theme_feature_name ) ) {
+					$theme_support      = get_theme_support( $this->theme_feature_name );
+					$default[ 'value' ] = isset( $theme_support[ 0 ][ $option ] ) ? $theme_support[ 0 ][ $option ] : $default[ 'value' ];
+				}
+				
+				if ( $is_new ) {
+					return ( $default[ 'type' ] === 'checkbox' ) ? ( ! ! $default[ 'value' ] ) : $default[ 'value' ];
 				} else {
-					if ( $default[ 'type' ] === 'checkbox' ) {
-						return apply_filters( 'wvs_settings_get_option', FALSE, $option, $options, $default );
-					} else {
-						return apply_filters( 'wvs_settings_get_option', $default[ 'value' ], $option, $options, $default );
-					}
+					return ( $default[ 'type' ] === 'checkbox' ) ? ( isset( $options[ $option ] ) ? TRUE : FALSE ) : $options[ $option ];
 				}
 			}
 			
@@ -188,7 +200,7 @@
 							
 							//$field[ 'label_for' ] = $this->settings_name . '[' . $field[ 'id' ] . ']';
 							$field[ 'label_for' ] = $field[ 'id' ] . '-field';
-							$field[ 'default' ]   = isset( $field[ 'default' ] ) ? $field[ 'default' ] : '';
+							$field[ 'default' ]   = isset( $field[ 'default' ] ) ? $field[ 'default' ] : NULL;
 							
 							// $this->set_default( $field[ 'id' ], $field[ 'default' ] );
 							

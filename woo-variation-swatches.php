@@ -93,6 +93,7 @@
 			}
 			
 			public function body_class( $classes ) {
+				array_push( $classes, 'woo-variation-swatches' );
 				array_push( $classes, sprintf( 'woo-variation-swatches-style-%s', $this->get_option( 'style' ) ) );
 				array_push( $classes, sprintf( 'woo-variation-swatches-tooltip-%s', $this->get_option( 'tooltip' ) ? 'enabled' : 'disabled' ) );
 				array_push( $classes, sprintf( 'woo-variation-swatches-stylesheet-%s', $this->get_option( 'stylesheet' ) ? 'enabled' : 'disabled' ) );

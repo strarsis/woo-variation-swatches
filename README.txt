@@ -137,7 +137,8 @@ Yes, it supports any kinds of product quick view.
 = 1.0.3 =
 
 * Added css class on body based on settings
-* Re styling
+* tooltip and frontend css changed
+* `add_theme_support( 'woo-variation-swatches', array( 'tooltip' => FALSE, 'stylesheet' => FALSE ) );` for theme developer default setting control.
 
 = 1.0.2 =
 

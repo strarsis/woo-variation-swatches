@@ -1,45 +1,73 @@
+.variations{
+
+  }
+
 .variable-items-wrapper {
   display   : flex;
   flex-wrap : wrap;
+  margin: 0;
 
   .variable-item {
     box-sizing      : border-box;
     list-style      : none;
-    padding         : 2px;
-    margin          : 2px;
     cursor          : pointer;
-    border          : 1px solid rgba(0, 0, 0, 0.2);
-    width           : 30px;
-    height          : 30px;
     display         : flex;
     justify-content : center;
     align-items     : center;
-    &.color-variable-item,
-    &.button-variable-item {
-      &.rounded-style {
-        border-radius : 50%;
-        span {
-          border-radius : 50%;
-          }
-        }
-      &.squared-style {
-        border-radius : 0;
-        span {
-          border-radius : 0;
-          }
+
+    &.color-variable-item {
+      padding         : 2px;
+      margin          : 2px;
+      width           : 30px;
+      height          : 30px;
+      border          : 1px solid rgba(0, 0, 0, 0.2);
+      span{
+        width: 20px;
+        height: 20px;
         }
       }
 
-    span {
-      padding   : 10px;
-      font-size : small;
+    &.button-variable-item{
+      padding         : 2px;
+      margin          : 2px;
+      width           : 36px;
+      height          : 36px;
+      border          : 1px solid rgba(0, 0, 0, 0.2);
+
+      span{
+        font-size: 10px;
+        line-height: 1;
+        }
+      &.selected,
+      &.selected:hover {
+        border : 1px solid #000;
+        background: #000;
+        color: #fff;
+        }
       }
+
+    &.image-variable-item{
+      padding         : 2px;
+      margin          : 2px;
+      width           : 40px;
+      height          : 40px;
+      border          : 1px solid rgba(0, 0, 0, 0.2);
+      }
+
 
     &:last-of-type {
       margin-right : 0;
       }
     &:hover {
       border : 1px solid #000000;
+      }
+
+    &.color-variable-item,
+    &.image-variable-item{
+      &.selected,
+      &.selected:hover {
+        border : 1px solid #000;
+        }
       }
 
     &.selected,
@@ -50,6 +78,31 @@
     &.disabled:hover {
       cursor  : not-allowed;
       opacity : 0.5;
+      }
+    }
+  }
+
+.woo-variation-swatches-style{
+  &-rounded{
+    .variable-item{
+      border-radius: 100%;
+
+      span,
+      img{
+        border-radius: 100%;
+        }
+      }
+    }
+  &-squared{
+    .variable-item{
+      border-radius: 0;
+      &.button-variable-item{
+        width: auto;
+        span{
+          width: auto;
+          padding: 0 10px;
+          }
+        }
       }
     }
   }

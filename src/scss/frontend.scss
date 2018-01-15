@@ -17,9 +17,20 @@
       width           : 30px;
       height          : 30px;
       border          : 1px solid rgba(0, 0, 0, 0.2);
+
       span{
         width: 20px;
         height: 20px;
+        position: relative;
+
+        &::after{
+          position: absolute;
+          content: "";
+          width: 20px;
+          height: 20px;
+          border-radius: 100%;
+          box-shadow: inset 0 0 1px 0 rgba(0, 0, 0, 0.5);
+          }
         }
       }
 
@@ -76,6 +87,17 @@
       opacity : 0.5;
       }
     }
+
+  //----------------------
+  // tool tips
+  //----------------------
+  [data-tooltip]:before{
+    background: rgba(0,0,0,.99) !important;
+    }
+
+  [data-tooltip]:after{
+    border-top-color: rgba(0,0,0,.99) !important;
+    }
   }
 
 .woo-variation-swatches-style{
@@ -99,6 +121,13 @@
           padding: 0 10px;
           }
         }
+
+      &.color-variable-item span{
+        &::after{
+          border-radius: 0;
+          }
+        }
+
       }
     }
   }

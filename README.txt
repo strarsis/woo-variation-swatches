@@ -37,16 +37,12 @@ In the free WooCommerce attribute variation plugin, besides creating size, brand
 = Sites Built With Woo Variation Swatches Plugin =
 <blockquote>
 <ul>
-<li><a href="http://bit.ly/woovs-demo-02">loja2passos.com.br</a> | Theme: Flatsome | Niche: Shoe Store </li>
+<li><a href="http://bit.ly/woovs-demo-02">loja2passos.com.br</a> | Built With: Flatsome Theme | Niche: Shoe Store </li>
 <li><a href="http://bit.ly/woovs-demo-01">plotnikoff.ru</a> | Niche: Furniture and Home Appliances Store </li>
-<li><a href="http://bit.ly/woovs-demo-03">robinsongarden.co.uk</a> | Bespoke Furniture Store</li>
+<li><a href="http://bit.ly/woovs-demo-03">robinsongarden.co.uk</a> | Niche: Bespoke Furniture Store</li>
 </ul>
 
 </blockquote>
-
-= Officially tested WooCommerce Themes =
-
-* [Flatsome Theme - Version 3.4.3](http://bit.ly/flatsomeyoutube)
 
 = Officially tested plugins =
 

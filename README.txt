@@ -38,8 +38,8 @@ In the free WooCommerce attribute variation plugin, besides creating size, brand
 <blockquote>
 <ul>
 <li><a href="http://bit.ly/woovs-demo-02">loja2passos.com.br</a> | Built With: Flatsome Theme | Niche: Shoe Store </li>
-<li><a href="http://bit.ly/woovs-demo-01">plotnikoff.ru</a> | Niche: Furniture and Home Appliances Store </li>
-<li><a href="http://bit.ly/woovs-demo-03">robinsongarden.co.uk</a> | Niche: Bespoke Furniture Store</li>
+<li><a href="http://bit.ly/woovs-demo-01">plotnikoff.ru</a> Built With: Uncode Theme | Niche: Furniture and Home Appliances Store </li>
+<li><a href="http://bit.ly/woovs-demo-03">robinsongarden.co.uk</a> Built With: Labomba Theme | Niche: Bespoke Furniture Store</li>
 </ul>
 
 </blockquote>

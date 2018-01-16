@@ -1,4 +1,4 @@
-=== Woo Variation Swatches ===
+=== WooCommerce Variation Swatches ===
 Contributors: EmranAhmed, wpeshaan
 Tags: woocommerce variation, woocommerce, variation swatches, woocommerce attributes, product attributes, product color, product size, variable product attributes, variation product swatches, color variation swatch, image variation swatch
 Requires at least: 4.8

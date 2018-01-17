@@ -80,11 +80,10 @@ const CustomVariationSelect = (($) => {
 
                     _.delay(function () {
                         li.each(function () {
-                            let value = $(this).data('value');
+                            let value = $(this).attr('data-value');
                             $(this).removeClass('selected disabled');
                             if (_.contains(selects, value)) {
                                 $(this).removeClass('disabled');
-
                                 if (value === selected) {
                                     $(this).addClass('selected');
                                 }
@@ -94,7 +93,6 @@ const CustomVariationSelect = (($) => {
                             }
                         });
                     }, 1);
-
                 });
             });
         }

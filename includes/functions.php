@@ -351,7 +351,7 @@
 						if ( in_array( $term->slug, $options ) ) {
 							$selected_class = ( sanitize_title( $args[ 'selected' ] ) == $term->slug ) ? 'selected' : '';
 							?>
-                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item button-variable-item image-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span><?php echo esc_html( $term->name ) ?></span></li>
+                            <li data-toggle="tooltip" data-tooltip="<?php echo esc_html( $term->name ) ?>" data-placement="top" class="variable-item button-variable-item button-variable-item-<?php echo $term->slug ?> <?php echo $selected_class ?>" title="<?php echo esc_html( $term->name ) ?>" data-value="<?php echo esc_attr( $term->slug ) ?>"><span><?php echo esc_html( $term->name ) ?></span></li>
 							<?php
 						}
 					}

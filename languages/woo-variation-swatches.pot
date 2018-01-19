@@ -16,8 +16,108 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../woo-variation-swatches.php:127
+#: ../includes/class-wvs-settings-api.php:78
+msgid "Woo Variation Swatches Settings"
+msgstr ""
+
+#: ../includes/class-wvs-settings-api.php:79, ../includes/class-wvs-settings-api.php:92
+msgid "Swatches Settings"
+msgstr ""
+
+#: ../includes/class-wvs-settings-api.php:112
+msgid "Settings"
+msgstr ""
+
+#: ../includes/class-wvs-term-meta.php:193
+msgid "Upload / Add image"
+msgstr ""
+
+#: ../includes/class-wvs-term-meta.php:194
+msgid "Remove image"
+msgstr ""
+
+#: ../includes/functions.php:11, ../includes/functions.php:76
+msgid "Color"
+msgstr ""
+
+#: ../includes/functions.php:12, ../includes/functions.php:85
+msgid "Image"
+msgstr ""
+
+#: ../includes/functions.php:13
+msgid "Button"
+msgstr ""
+
+#: ../includes/functions.php:28
+msgid "General"
+msgstr ""
+
+#: ../includes/functions.php:30
+msgid "Display Section"
+msgstr ""
+
+#: ../includes/functions.php:31
+msgid "Simply change some visual styles"
+msgstr ""
+
+#: ../includes/functions.php:36
+msgid "Enable Tooltip"
+msgstr ""
+
+#: ../includes/functions.php:37
+msgid "Enable / Disable plugin default tooltip on each product attribute."
+msgstr ""
+
+#: ../includes/functions.php:43
+msgid "Enable Stylesheet"
+msgstr ""
+
+#: ../includes/functions.php:44
+msgid "Enable / Disable plugin default stylesheet"
+msgstr ""
+
+#: ../includes/functions.php:50
+msgid "Shape style"
+msgstr ""
+
+#: ../includes/functions.php:51
+msgid "Attribute Shape Style"
+msgstr ""
+
+#: ../includes/functions.php:53
+msgid "Rounded Shape"
+msgstr ""
+
+#: ../includes/functions.php:54
+msgid "Squared Shape"
+msgstr ""
+
+#: ../includes/functions.php:77
+msgid "Choose a color"
+msgstr ""
+
+#: ../includes/functions.php:86, ../woo-variation-swatches.php:127
 msgid "Choose an Image"
+msgstr ""
+
+#: ../includes/functions.php:126
+msgid "Select terms"
+msgstr ""
+
+#: ../includes/functions.php:136
+msgid "Select all"
+msgstr ""
+
+#: ../includes/functions.php:137
+msgid "Select none"
+msgstr ""
+
+#: ../includes/functions.php:138
+msgid "Add new"
+msgstr ""
+
+#: ../includes/functions.php:159, ../includes/functions.php:232, ../includes/functions.php:307
+msgid "Choose an option"
 msgstr ""
 
 #: ../woo-variation-swatches.php:128

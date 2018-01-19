@@ -22,6 +22,7 @@ includes
 languages
 package.json
 README.txt
+uninstall.php
 webpack.mix.js`;
 
         let includes = list.split("\n");

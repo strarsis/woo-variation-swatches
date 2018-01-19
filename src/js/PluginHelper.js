@@ -39,7 +39,7 @@ const PluginHelper = (($) => {
 
                     if ($.trim(attachment.id) !== '') {
 
-                        let url = ( typeof(attachment.sizes.thumbnail) === 'undefined' ) ? attachment.sizes.full.url : attachment.sizes.thumbnail.url;
+                        let url = (typeof(attachment.sizes.thumbnail) === 'undefined') ? attachment.sizes.full.url : attachment.sizes.thumbnail.url;
 
                         $(this).prev().val(attachment.id);
                         $(this).closest('.meta-image-field-wrapper').find('img').attr('src', url);
@@ -85,11 +85,15 @@ const PluginHelper = (($) => {
         }
 
         static ColorPicker(selector = 'input.wvs-color-picker') {
-            $(selector).wpColorPicker();
+            if ($().wpColorPicker) {
+                $(selector).wpColorPicker();
+            }
         }
 
         static FieldDependency(selector = '[data-depends]') {
-            $(selector).FormFieldDependency();
+            if ($().FormFieldDependency) {
+                $(selector).FormFieldDependency();
+            }
         }
     }
 

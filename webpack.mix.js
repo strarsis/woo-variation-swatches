@@ -60,7 +60,7 @@ if (Mix.inProduction()) {
 }
 
 mix.banner({
-    banner : "WooCommerce Variation Swatches v1.0.4 \n\nAuthor: Emran Ahmed ( emran.bd.08@gmail.com ) \nDate: " + new Date().toLocaleString() + "\nReleased under the GPLv3 license."
+    banner : "WooCommerce Variation Swatches v1.0.5 \n\nAuthor: Emran Ahmed ( emran.bd.08@gmail.com ) \nDate: " + new Date().toLocaleString() + "\nReleased under the GPLv3 license."
 });
 
 mix.notification({

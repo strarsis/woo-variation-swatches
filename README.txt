@@ -131,6 +131,10 @@ Yes, it supports any kinds of product quick view.
 
 == Changelog ==
 
+= 1.0.5 =
+
+* Fix backend js issue
+
 = 1.0.4 =
 
 * Fix Number Issue selection

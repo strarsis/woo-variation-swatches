@@ -1,10 +1,10 @@
 <?php
 	/**
-	 * Plugin Name: Woo Variation Swatches
+	 * Plugin Name: WooCommerce Variation Swatches
 	 * Plugin URI: https://wordpress.org/plugins/woo-variation-swatches/
 	 * Description: WooCommerce Product Variation Swatches
 	 * Author: Emran Ahmed
-	 * Version: 1.0.4
+	 * Version: 1.0.5
 	 * Domain Path: /languages
 	 * Requires at least: 4.8
 	 * Tested up to: 4.9
@@ -20,7 +20,7 @@
 		
 		final class Woo_Variation_Swatches {
 			
-			protected $_version = '1.0.4';
+			protected $_version = '1.0.5';
 			
 			protected static $_instance = NULL;
 			private          $_settings_api;
@@ -215,7 +215,7 @@
 					$class   = 'notice notice-error';
 					$text    = esc_html__( 'Please check PHP version requirement.', 'woo-variation-swatches' );
 					$link    = esc_url( 'https://docs.woocommerce.com/document/server-requirements/' );
-					$message = wp_kses( __( "It's required to use latest version of PHP to use <strong>Woo Variation Swatches</strong>.", 'woo-variation-swatches' ), array( 'strong' => array() ) );
+					$message = wp_kses( __( "It's required to use latest version of PHP to use <strong>WooCommerce Variation Swatches</strong>.", 'woo-variation-swatches' ), array( 'strong' => array() ) );
 					
 					printf( '<div class="%1$s"><p>%2$s <a target="_blank" href="%3$s">%4$s</a></p></div>', $class, $message, $link, $text );
 				}
@@ -227,7 +227,7 @@
 					
 					$text    = esc_html__( 'WooCommerce', 'woo-variation-swatches' );
 					$link    = esc_url( 'https://wordpress.org/plugins/woocommerce/' );
-					$message = wp_kses( __( "<strong>Woo Variation Switcher</strong> is an add-on of ", 'woo-variation-swatches' ), array( 'strong' => array() ) );
+					$message = wp_kses( __( "<strong>WooCommerce Variation Swatches</strong> is an add-on of ", 'woo-variation-swatches' ), array( 'strong' => array() ) );
 					
 					printf( '<div class="%1$s"><p>%2$s <a target="_blank" href="%3$s"><strong>%4$s</strong></a></p></div>', $class, $message, $link, $text );
 				}
@@ -323,7 +323,7 @@
 				if ( file_exists( $located ) ) {
 					include $located;
 				} else {
-					trigger_error( sprintf( esc_html__( 'Woo Variation Swatches Plugin try to load "%s" but template "%s" was not found.', 'woo-variation-swatches' ), $located, $template_name ), E_USER_WARNING );
+					trigger_error( sprintf( esc_html__( 'WooCommerce Variation Swatches Plugin try to load "%s" but template "%s" was not found.', 'woo-variation-swatches' ), $located, $template_name ), E_USER_WARNING );
 				}
 				
 				do_action( 'wvs_after_get_template', $template_name, $template_args );

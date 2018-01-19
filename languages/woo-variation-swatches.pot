@@ -53,7 +53,7 @@ msgid "Please check PHP version requirement."
 msgstr ""
 
 #: ../woo-variation-swatches.php:218
-msgid "It's required to use latest version of PHP to use <strong>Woo Variation Swatches</strong>."
+msgid "It's required to use latest version of PHP to use <strong>WooCommerce Variation Swatches</strong>."
 msgstr ""
 
 #: ../woo-variation-swatches.php:228
@@ -61,9 +61,9 @@ msgid "WooCommerce"
 msgstr ""
 
 #: ../woo-variation-swatches.php:230
-msgid "<strong>Woo Variation Switcher</strong> is an add-on of "
+msgid "<strong>WooCommerce Variation Swatches</strong> is an add-on of "
 msgstr ""
 
 #: ../woo-variation-swatches.php:326
-msgid "Woo Variation Swatches Plugin try to load \"%s\" but template \"%s\" was not found."
+msgid "WooCommerce Variation Swatches Plugin try to load \"%s\" but template \"%s\" was not found."
 msgstr ""

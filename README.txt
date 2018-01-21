@@ -131,6 +131,14 @@ Yes, it supports any kinds of product quick view.
 
 == Changelog ==
 
+= 1.0.7 =
+
+* Improving frontend CSS
+
+= 1.0.6 =
+
+* Update translation
+
 = 1.0.5 =
 
 * Fix backend js issue

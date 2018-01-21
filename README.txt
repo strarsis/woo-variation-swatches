@@ -37,33 +37,33 @@ In the free WooCommerce attribute variation plugin, besides creating size, brand
 = Sites Built With Woo Variation Swatches Plugin =
 <blockquote>
 <ul>
-<li><a href="http://bit.ly/woovs-demo-04">gimp3d.com</a> | Built With: Flatsome Theme | Niche: 3D Printing Parts Store </li>
-<li><a href="http://bit.ly/woovs-demo-02">loja2passos.com.br</a> | Built With: Flatsome Theme | Niche: Shoe Store </li>
-<li><a href="http://bit.ly/woovs-demo-01">plotnikoff.ru</a> Built With: Uncode Theme | Niche: Furniture and Home Appliances Store </li>
-<li><a href="http://bit.ly/woovs-demo-03">robinsongarden.co.uk</a> Built With: Labomba Theme | Niche: Bespoke Furniture Store</li>
+<li><a target="_blank" href="http://bit.ly/woovs-demo-04">gimp3d.com</a> | Built With: Flatsome Theme | Niche: 3D Printing Parts Store </li>
+<li><a target="_blank" href="http://bit.ly/woovs-demo-02">loja2passos.com.br</a> | Built With: Flatsome Theme | Niche: Shoe Store </li>
+<li><a target="_blank" href="http://bit.ly/woovs-demo-01">plotnikoff.ru</a> Built With: Uncode Theme | Niche: Furniture and Home Appliances Store </li>
+<li><a target="_blank" href="http://bit.ly/woovs-demo-03">robinsongarden.co.uk</a> Built With: Labomba Theme | Niche: Bespoke Furniture Store</li>
 </ul>
-
 </blockquote>
 
 = Officially tested plugins =
 
-* WPML 
+* WPML
 * Polylang
+* Loco Translate
 
 = Forum and Feature Request =
 
 <blockquote>
 <h4>For feature request and bug reporting</h4>
 <ul>
-<li>  <a href="http://bit.ly/getwoopluginsgroup">Join Our Facebook Group</a></li>
+<li><a target="_blank" href="http://bit.ly/getwoopluginsgroup">Join Our Facebook Group</a></li>
 </ul>
 <h4>For contribution</h4>
 <ul>
-<li><a href="https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches">Join Project in Github</a></li>
+<li><a target="_blank" href="https://github.com/EmranAhmed/woo-variation-swatches/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches">Join Project in Github</a></li>
 </ul>
 <h4>For more information</h4>
 <ul>
-<li><a href="https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches">Visit Our Official Website</a></li>
+<li><a target="_blank" href="https://getwooplugins.com/?utm_source=wordpress.org&utm_campaign=Woo+Variation+Swatches">Visit Our Official Website</a></li>
 </ul>
 </blockquote>
 
@@ -74,7 +74,7 @@ In the free WooCommerce attribute variation plugin, besides creating size, brand
 
 1. Login to your the admin panel
 2. Navigate to Plugins -> Add New
-3. Search **Woo Variation Switcher**
+3. Search **WooCommerce Variation Swatches**
 4. Click install and activate respectively.
 
 ### Manual Install From WordPress Dashboard
@@ -110,9 +110,9 @@ Even this plugin has been installed and activated on your site, variable product
 5. Go back to manage attributes screen. Click the cog icon on the right side of attribute to start editing terms.
 6. Start adding new terms or editing exists terms. There is will be a new option at the end of form that let you choose the color, upload image or choose as a button for those terms.
 
-= Is it compatible with Any kinds of WooCommerce Theme? =
+= Is it compatible with any kinds of WooCommerce Theme? =
 
-Yes, it's compatible with woocommerce theme including Flatsome. But sometimes it may require small css tweak.
+Yes, it's compatible with woocommerce theme including Flatsome / X-Theme / Avada / Uncode / Storefront / Labomba. But sometimes it may require small css tweak.
 
 = Does it show in product QuickView? =
 
@@ -134,6 +134,7 @@ Yes, it supports any kinds of product quick view.
 = 1.0.7 =
 
 * Improving frontend CSS
+* Disable Bootstrap tooltip conflict
 
 = 1.0.6 =
 

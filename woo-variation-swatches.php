@@ -79,17 +79,16 @@
 			
 			public function hooks() {
 				add_action( 'init', array( $this, 'language' ) );
-				add_action( 'init', array( $this, 'settings_api' ), 5 );
-				
 				add_action( 'admin_notices', array( $this, 'php_requirement_notice' ) );
 				add_action( 'admin_notices', array( $this, 'wc_requirement_notice' ) );
-				
-				add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
-				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-				
 				add_filter( 'plugin_row_meta', array( $this, 'plugin_row_meta' ), 10, 2 );
 				
-				add_filter( 'body_class', array( $this, 'body_class' ) );
+				if ( $this->is_required_php_version() ) {
+					add_action( 'init', array( $this, 'settings_api' ), 5 );
+					add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+					add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+					add_filter( 'body_class', array( $this, 'body_class' ) );
+				}
 			}
 			
 			public function body_class( $classes ) {

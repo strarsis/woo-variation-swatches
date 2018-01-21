@@ -118,6 +118,10 @@ Yes, it's compatible with woocommerce theme including Flatsome. But sometimes it
 
 Yes, it supports any kinds of product quick view.
 
+= What to do Fatal error: Class 'WVS_Settings_API' not found in ../woo-variation-swatches.php on line 136? = 
+
+It means you PHP version is lower than 5.6. You have to update your PHP version. Check here for more details: http://bit.ly/getwoo-system-requirement
+
 == Screenshots ==
 
 1. Single Product variation page

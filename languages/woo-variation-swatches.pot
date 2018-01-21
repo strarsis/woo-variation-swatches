@@ -96,7 +96,7 @@ msgstr ""
 msgid "Choose a color"
 msgstr ""
 
-#: ../includes/functions.php:86, ../woo-variation-swatches.php:127
+#: ../includes/functions.php:86, ../woo-variation-swatches.php:129
 msgid "Choose an Image"
 msgstr ""
 
@@ -120,50 +120,50 @@ msgstr ""
 msgid "Choose an option"
 msgstr ""
 
-#: ../woo-variation-swatches.php:128
+#: ../woo-variation-swatches.php:130
 msgid "Use Image"
 msgstr ""
 
-#: ../woo-variation-swatches.php:129
+#: ../woo-variation-swatches.php:131
 msgid "Add Media"
 msgstr ""
 
-#: ../woo-variation-swatches.php:184
+#: ../woo-variation-swatches.php:186
 msgid "View Documentation"
 msgstr ""
 
-#: ../woo-variation-swatches.php:184
+#: ../woo-variation-swatches.php:186
 msgid "Documentation"
 msgstr ""
 
-#: ../woo-variation-swatches.php:185, ../woo-variation-swatches.php:185
+#: ../woo-variation-swatches.php:187, ../woo-variation-swatches.php:187
 msgid "Support"
 msgstr ""
 
-#: ../woo-variation-swatches.php:186
+#: ../woo-variation-swatches.php:188
 msgid "Review"
 msgstr ""
 
-#: ../woo-variation-swatches.php:186
+#: ../woo-variation-swatches.php:188
 msgid "Please Rate Us"
 msgstr ""
 
-#: ../woo-variation-swatches.php:216
+#: ../woo-variation-swatches.php:218
 msgid "Please check PHP version requirement."
 msgstr ""
 
-#: ../woo-variation-swatches.php:218
+#: ../woo-variation-swatches.php:220
 msgid "It's required to use latest version of PHP to use <strong>WooCommerce Variation Swatches</strong>."
 msgstr ""
 
-#: ../woo-variation-swatches.php:228
+#: ../woo-variation-swatches.php:230
 msgid "WooCommerce"
 msgstr ""
 
-#: ../woo-variation-swatches.php:230
+#: ../woo-variation-swatches.php:232
 msgid "<strong>WooCommerce Variation Swatches</strong> is an add-on of "
 msgstr ""
 
-#: ../woo-variation-swatches.php:326
+#: ../woo-variation-swatches.php:328
 msgid "WooCommerce Variation Swatches Plugin try to load \"%s\" but template \"%s\" was not found."
 msgstr ""

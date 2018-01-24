@@ -1,11 +1,11 @@
 .variable-items-wrapper {
-  [data-tooltip] {
+  [data-wvstooltip] {
     position : relative;
     cursor   : pointer;
     }
 
-  [data-tooltip]:before,
-  [data-tooltip]:after {
+  [data-wvstooltip]:before,
+  [data-wvstooltip]:after {
     visibility     : hidden;
     opacity        : 0;
     pointer-events : none;
@@ -16,7 +16,7 @@
     z-index        : 9;
     }
 
-  [data-tooltip]:before {
+  [data-wvstooltip]:before {
     margin-bottom    : 5px;
     margin-left      : -50px;
     padding          : 7px;
@@ -25,13 +25,13 @@
     background-color : #000000;
     background-color : hsla(0, 0%, 20%, 0.9);
     color            : #FFFFFF;
-    content          : attr(data-tooltip);
+    content          : attr(data-wvstooltip);
     text-align       : center;
     font-size        : 14px;
     line-height      : 1.2;
     }
 
-  [data-tooltip]:after {
+  [data-wvstooltip]:after {
     margin-left  : -5px;
     width        : 0;
     border-top   : 5px solid #000000;
@@ -43,8 +43,8 @@
     line-height  : 0;
     }
 
-  [data-tooltip]:hover:before,
-  [data-tooltip]:hover:after {
+  [data-wvstooltip]:hover:before,
+  [data-wvstooltip]:hover:after {
     visibility : visible;
     opacity    : 1;
     }

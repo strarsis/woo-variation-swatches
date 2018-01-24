@@ -14,7 +14,7 @@ Beautiful Color, Image and Buttons Variation Swatches For WooCommerce Product At
 
 [youtube https://www.youtube.com/watch?v=BySSYFuqwls]
 
-Woo Variation Swatches is easy to use WooCommerce product variation swatches plugin. It offers an aesthetic and professional experience to select attributes for variation products. It turns the product variation select options fields into radio images, colors, and label. It means with the help of this powerful WooCommerce color or image variation swatches plugin, you can show product variation items in images, colors, and label. So, you can say goodbye to dropdown product attribute fields.
+WooCommerce Variation Swatches is easy to use WooCommerce product variation swatches plugin. It offers an aesthetic and professional experience to select attributes for variation products. It turns the product variation select options fields into radio images, colors, and label. It means with the help of this powerful WooCommerce color or image variation swatches plugin, you can show product variation items in images, colors, and label. So, you can say goodbye to dropdown product attribute fields.
 
 WooCommerce Variation Swatches not only offers the color, image and label attributes in the single WooCommerce product. It also enables them in product quick view. If you're using WooCommerce themes like Flatsome that comes with default Quick View option, you don’t need to hassle to load color and image swatches for variable product attributes in quick view separately.
 
@@ -34,7 +34,7 @@ In the free WooCommerce attribute variation plugin, besides creating size, brand
 * Option to disable default plugin stylesheet for theme developer.
 * No extra option and no conclusion.
 
-= Sites Built With Woo Variation Swatches Plugin =
+= Sites Built With WooCommerce Variation Swatches Plugin =
 <blockquote>
 <ul>
 <li><a target="_blank" href="http://bit.ly/woovs-demo-04">gimp3d.com</a> | Built With: Flatsome Theme | Niche: 3D Printing Parts Store </li>
@@ -47,8 +47,8 @@ In the free WooCommerce attribute variation plugin, besides creating size, brand
 = Officially tested plugins =
 
 * WPML
-* Polylang
-* Loco Translate
+* <a target="_blank" href="https://wordpress.org/plugins/polylang/">Polylang</a>
+* <a target="_blank" href="https://wordpress.org/plugins/loco-translate/">Loco Translate</a>
 
 = Forum and Feature Request =
 
@@ -130,6 +130,12 @@ Yes, it supports any kinds of product quick view.
 8. Settings Panel
 
 == Changelog ==
+
+= 1.0.8 =
+
+* Improve variation javascript to support ajax variation
+* Renamed tooltip attribute to resolve conflict
+* Renamed variation javascript class name
 
 = 1.0.7 =
 

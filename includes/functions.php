@@ -173,7 +173,7 @@
 				$options    = $attributes[ $attribute ];
 			}
 			
-			echo '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . ' hide" style="display:none" name="' . esc_attr( $name ) . '" data-attribute_name="' . esc_attr( wc_variation_attribute_name( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
+			echo '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . ' hide woo-variation-raw-select" style="display:none" name="' . esc_attr( $name ) . '" data-attribute_name="' . esc_attr( wc_variation_attribute_name( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
 			
 			if ( $args[ 'show_option_none' ] ) {
 				echo '<option value="">' . esc_html( $show_option_none_text ) . '</option>';
@@ -246,7 +246,7 @@
 				$options    = $attributes[ $attribute ];
 			}
 			
-			echo '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . ' hide" style="display:none" name="' . esc_attr( $name ) . '" data-attribute_name="' . esc_attr( wc_variation_attribute_name( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
+			echo '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . ' hide woo-variation-raw-select" style="display:none" name="' . esc_attr( $name ) . '" data-attribute_name="' . esc_attr( wc_variation_attribute_name( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
 			
 			if ( $args[ 'show_option_none' ] ) {
 				echo '<option value="">' . esc_html( $show_option_none_text ) . '</option>';
@@ -321,7 +321,7 @@
 				$options    = $attributes[ $attribute ];
 			}
 			
-			echo '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . ' hide" style="display:none" name="' . esc_attr( $name ) . '" data-attribute_name="' . esc_attr( wc_variation_attribute_name( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
+			echo '<select id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . ' hide woo-variation-raw-select" style="display:none" name="' . esc_attr( $name ) . '" data-attribute_name="' . esc_attr( wc_variation_attribute_name( $attribute ) ) . '" data-show_option_none="' . ( $show_option_none ? 'yes' : 'no' ) . '">';
 			
 			if ( $args[ 'show_option_none' ] ) {
 				echo '<option value="">' . esc_html( $show_option_none_text ) . '</option>';

@@ -131,6 +131,12 @@ Yes, it supports any kinds of product quick view.
 
 == Changelog ==
 
+= 1.0.9 =
+
+* Merged Pull request from `spoyntersmith`
+* Tooltip hardware acceleration issue fix for theme animation
+* use jquery `sibling` instead of `prev`
+
 = 1.0.8 =
 
 * Improve variation javascript to support ajax variation

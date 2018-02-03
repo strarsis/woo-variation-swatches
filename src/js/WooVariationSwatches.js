@@ -35,7 +35,7 @@ const WooVariationSwatches = (($) => {
         init() {
             this._element.find('ul.variable-items-wrapper').each(function (i, el) {
 
-                let select = $(this).prev('select');
+                let select = $(this).siblings('select.woo-variation-raw-select');
 
                 $(this).on('click', 'li', function (e) {
                     e.preventDefault();
@@ -69,9 +69,9 @@ const WooVariationSwatches = (($) => {
                 if (is_ajax) {
                     $(this).find('ul.variable-items-wrapper').each(function () {
                         let selected = '',
-                            options  = $(this).prev('select').find('option'),
-                            current  = $(this).prev('select').find('option:selected'),
-                            eq       = $(this).prev('select').find('option').eq(1),
+                            options  = $(this).siblings('select.woo-variation-raw-select').find('option'),
+                            current  = $(this).siblings('select.woo-variation-raw-select').find('option:selected'),
+                            eq       = $(this).siblings('select.woo-variation-raw-select').find('option').eq(1),
                             li       = $(this).find('li'),
                             selects  = [];
 
@@ -99,9 +99,9 @@ const WooVariationSwatches = (($) => {
                 $(this).find('ul.variable-items-wrapper').each(function () {
 
                     let selected = '',
-                        options  = $(this).prev('select').find('option'),
-                        current  = $(this).prev('select').find('option:selected'),
-                        eq       = $(this).prev('select').find('option').eq(1),
+                        options  = $(this).siblings('select.woo-variation-raw-select').find('option'),
+                        current  = $(this).siblings('select.woo-variation-raw-select').find('option:selected'),
+                        eq       = $(this).siblings('select.woo-variation-raw-select').find('option').eq(1),
                         li       = $(this).find('li'),
                         selects  = [];
 

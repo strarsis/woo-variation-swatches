@@ -112,11 +112,15 @@ Even this plugin has been installed and activated on your site, variable product
 
 = Is it compatible with any kinds of WooCommerce Theme? =
 
-Yes, it's compatible with woocommerce theme including Flatsome / X-Theme / Avada / Uncode / Storefront / Labomba. But sometimes it may require small css tweak.
+Yes, it's compatible with any woocommerce theme including Flatsome / X-Theme / Avada / Uncode / Storefront / Labomba. But sometimes it may require small css tweak.
 
 = Does it show in product QuickView? =
 
 Yes, it supports any kinds of product quick view.
+
+= How to use it on ajax load more? =
+
+Just call this javascript function on ajax load event `$('.variations_form').trigger('wc_variation_form');` or `$('.variations_form').WooVariationSwatches();`. And your are ready to go.
 
 == Screenshots ==
 
@@ -130,6 +134,12 @@ Yes, it supports any kinds of product quick view.
 8. Settings Panel
 
 == Changelog ==
+
+= 1.0.10 =
+
+* Extendable hooks added to extend
+* Fixed: Out Of Stock Product Issue.
+* ajax variation threshold option added to control ajax variation.
 
 = 1.0.9 =
 

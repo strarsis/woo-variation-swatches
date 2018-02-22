@@ -2,8 +2,6 @@
 // WooCommerce Variation Change
 // ================================================================
 
-// decrease `woocommerce_ajax_variation_threshold` filter value for ajax testing
-
 const WooVariationSwatches = (($) => {
 
     const Default = {};
@@ -13,13 +11,15 @@ const WooVariationSwatches = (($) => {
         constructor(element, config) {
 
             // Assign
-            this._element          = $(element);
-            this._config           = $.extend({}, Default, config);
-            this._generated        = {};
-            this.is_ajax_variation = !this._element.data('product_variations');
+            this._element           = $(element);
+            this._config            = $.extend({}, Default, config);
+            this._generated         = {};
+            this.product_variations = this._element.data('product_variations');
+            this.is_ajax_variation  = !this.product_variations;
 
             // Call
-            this.init();
+            this.init(this.is_ajax_variation);
+            this.loaded(this.is_ajax_variation);
             this.update(this.is_ajax_variation);
             this.reset(this.is_ajax_variation);
 
@@ -32,7 +32,8 @@ const WooVariationSwatches = (($) => {
             })
         }
 
-        init() {
+        init(is_ajax) {
+
             this._element.find('ul.variable-items-wrapper').each(function (i, el) {
 
                 let select = $(this).siblings('select.woo-variation-raw-select');
@@ -47,6 +48,43 @@ const WooVariationSwatches = (($) => {
                     select.trigger('touchstart');
                 });
             });
+
+            _.delay(() => {
+                this._element.trigger('woo_variation_swatches_init', [this, this.product_variations])
+            }, 1)
+        }
+
+        loaded(is_ajax) {
+            if (!is_ajax) {
+                this._element.on('woo_variation_swatches_init', function (event, object, product_variations) {
+
+                    object._generated = product_variations.reduce((obj, variation) => {
+                        Object.keys(variation.attributes).map((attribute_name) => {
+
+                            if (!obj[attribute_name]) {
+                                obj[attribute_name] = []
+                            }
+                            obj[attribute_name].push(variation.attributes[attribute_name])
+                        })
+
+                        return obj;
+                    }, {})
+
+                    $(this).find('ul.variable-items-wrapper').each(function () {
+                        let li               = $(this).find('li');
+                        let attribute        = $(this).data('attribute_name');
+                        let attribute_values = object._generated[attribute];
+
+                        li.each(function () {
+                            let attribute_value = $(this).attr('data-value');
+                            if (!attribute_values.includes(attribute_value)) {
+                                $(this).removeClass('selected');
+                                $(this).addClass('disabled');
+                            }
+                        });
+                    });
+                });
+            }
         }
 
         reset(is_ajax) {
@@ -56,8 +94,7 @@ const WooVariationSwatches = (($) => {
                     let li = $(this).find('li');
                     li.each(function () {
                         if (!is_ajax) {
-                            $(this).removeClass('selected');
-                            $(this).removeClass('disabled');
+                            $(this).removeClass('selected disabled');
                         }
                     });
                 });
@@ -131,12 +168,6 @@ const WooVariationSwatches = (($) => {
             });
         }
     }
-
-    /**
-     * ------------------------------------------------------------------------
-     * Data Api implementation
-     * ------------------------------------------------------------------------
-     */
 
     /**
      * ------------------------------------------------------------------------

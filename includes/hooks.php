@@ -9,4 +9,6 @@
 	
 	add_action( 'woocommerce_product_option_terms', 'wvs_product_option_terms', 10, 2 );
 	
+	add_filter( 'woocommerce_ajax_variation_threshold', 'wvs_ajax_variation_threshold', 20 );
+	
 	add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'wvs_variation_attribute_options_html', 200, 2 );

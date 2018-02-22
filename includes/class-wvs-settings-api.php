@@ -161,7 +161,7 @@
 				if ( $is_new ) {
 					return ( $default[ 'type' ] === 'checkbox' ) ? ( ! ! $default[ 'value' ] ) : $default[ 'value' ];
 				} else {
-					return ( $default[ 'type' ] === 'checkbox' ) ? ( isset( $options[ $option ] ) ? TRUE : FALSE ) : $options[ $option ];
+					return ( $default[ 'type' ] === 'checkbox' ) ? ( isset( $options[ $option ] ) ? TRUE : FALSE ) : ( isset( $options[ $option ] ) ? $options[ $option ] : $default[ 'value' ] );
 				}
 			}
 			
@@ -347,11 +347,17 @@
 						<?php $this->options_tabs(); ?>
 
                         <div id="settings-tabs">
-							<?php foreach ( $this->fields as $tab ): ?>
+							<?php foreach ( $this->fields as $tab ):
+								
+								if ( ! isset( $tab[ 'active' ] ) ) {
+									$tab[ 'active' ] = FALSE;
+								}
+								$is_active = $tab[ 'active' ];
+								?>
 
                                 <div id="<?php echo $tab[ 'id' ] ?>"
                                      class="settings-tab wvs-setting-tab"
-                                     style="<?php echo( ! isset( $tab[ 'active' ] ) ? 'display: none' : '' ) ?>">
+                                     style="<?php echo ! $is_active ? 'display: none' : '' ?>">
 									<?php foreach ( $tab[ 'sections' ] as $section ):
 										$this->do_settings_sections( $tab[ 'id' ] . $section[ 'id' ] );
 									endforeach; ?>

@@ -36,87 +36,95 @@ msgstr ""
 msgid "Remove image"
 msgstr ""
 
-#: ../includes/functions.php:11, ../includes/functions.php:76
+#: ../includes/functions.php:14, ../includes/functions.php:127
 msgid "Color"
 msgstr ""
 
-#: ../includes/functions.php:12, ../includes/functions.php:85
+#: ../includes/functions.php:19, ../includes/functions.php:136
 msgid "Image"
 msgstr ""
 
-#: ../includes/functions.php:13
+#: ../includes/functions.php:24
 msgid "Button"
 msgstr ""
 
-#: ../includes/functions.php:28
+#: ../includes/functions.php:69
 msgid "General"
 msgstr ""
 
-#: ../includes/functions.php:30
+#: ../includes/functions.php:71
 msgid "Display Section"
 msgstr ""
 
-#: ../includes/functions.php:31
+#: ../includes/functions.php:72
 msgid "Simply change some visual styles"
 msgstr ""
 
-#: ../includes/functions.php:36
+#: ../includes/functions.php:77
 msgid "Enable Tooltip"
 msgstr ""
 
-#: ../includes/functions.php:37
+#: ../includes/functions.php:78
 msgid "Enable / Disable plugin default tooltip on each product attribute."
 msgstr ""
 
-#: ../includes/functions.php:43
+#: ../includes/functions.php:84
 msgid "Enable Stylesheet"
 msgstr ""
 
-#: ../includes/functions.php:44
+#: ../includes/functions.php:85
 msgid "Enable / Disable plugin default stylesheet"
 msgstr ""
 
-#: ../includes/functions.php:50
+#: ../includes/functions.php:91
+msgid "Ajax variation threshold"
+msgstr ""
+
+#: ../includes/functions.php:92
+msgid "Control the number of enable ajax variation threshold, If you set <code>1</code> all product variation will be load via ajax. Default value is <code>30</code>"
+msgstr ""
+
+#: ../includes/functions.php:100
 msgid "Shape style"
 msgstr ""
 
-#: ../includes/functions.php:51
+#: ../includes/functions.php:101
 msgid "Attribute Shape Style"
 msgstr ""
 
-#: ../includes/functions.php:53
+#: ../includes/functions.php:103
 msgid "Rounded Shape"
 msgstr ""
 
-#: ../includes/functions.php:54
+#: ../includes/functions.php:104
 msgid "Squared Shape"
 msgstr ""
 
-#: ../includes/functions.php:77
+#: ../includes/functions.php:128
 msgid "Choose a color"
 msgstr ""
 
-#: ../includes/functions.php:86, ../woo-variation-swatches.php:129
+#: ../includes/functions.php:137, ../woo-variation-swatches.php:129
 msgid "Choose an Image"
 msgstr ""
 
-#: ../includes/functions.php:126
+#: ../includes/functions.php:180
 msgid "Select terms"
 msgstr ""
 
-#: ../includes/functions.php:136
+#: ../includes/functions.php:190
 msgid "Select all"
 msgstr ""
 
-#: ../includes/functions.php:137
+#: ../includes/functions.php:191
 msgid "Select none"
 msgstr ""
 
-#: ../includes/functions.php:138
+#: ../includes/functions.php:192
 msgid "Add new"
 msgstr ""
 
-#: ../includes/functions.php:159, ../includes/functions.php:232, ../includes/functions.php:307
+#: ../includes/functions.php:266, ../includes/functions.php:339, ../includes/functions.php:413
 msgid "Choose an option"
 msgstr ""
 

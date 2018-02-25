@@ -28,9 +28,29 @@
 				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 				
 				// Add columns
-				//add_filter( 'manage_edit-product_cat_columns', array( $this, 'product_cat_columns' ) );
-				//add_filter( 'manage_product_cat_custom_column', array( $this, 'product_cat_column' ), 10, 3 );
+				add_filter( "manage_edit-{$this->taxonomy}_columns", array( $this, 'taxonomy_columns' ) );
+				add_filter( "manage_{$this->taxonomy}_custom_column", array( $this, 'taxonomy_column' ), 10, 3 );
 				
+			}
+			
+			public function taxonomy_columns( $columns ) {
+				$new_columns                       = array();
+				$new_columns[ 'cb' ]               = $columns[ 'cb' ];
+				$new_columns[ 'wvs-meta-preview' ] = '';
+				unset( $columns[ 'cb' ] );
+				
+				return array_merge( $new_columns, $columns );
+			}
+			
+			public function taxonomy_column( $columns, $column, $term_id ) {
+				
+				$attribute       = wvs_get_wc_attribute_taxonomy( $this->taxonomy );
+				$fields          = wvs_taxonomy_meta_fields( $attribute->attribute_type );
+				$available_types = wvs_available_attributes_types( $attribute->attribute_type );
+				
+				if ( is_callable( $available_types[ 'preview' ] ) ) {
+					call_user_func( $available_types[ 'preview' ], $term_id, $attribute, $fields );
+				}
 			}
 			
 			public function delete_term( $term_id, $tt_id, $taxonomy, $deleted_term ) {

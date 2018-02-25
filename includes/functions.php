@@ -7,25 +7,63 @@
 	//-------------------------------------------------------------------------------
 	
 	if ( ! function_exists( 'wvs_available_attributes_types' ) ):
-		function wvs_available_attributes_types() {
+		function wvs_available_attributes_types( $type = FALSE ) {
 			$types = array();
 			
 			$types[ 'color' ] = array(
-				'title'  => esc_html__( 'Color', 'woo-variation-swatches' ),
-				'output' => 'wvs_color_variation_attribute_options'
+				'title'   => esc_html__( 'Color', 'woo-variation-swatches' ),
+				'output'  => 'wvs_color_variation_attribute_options',
+				'preview' => 'wvs_color_variation_attribute_preview'
 			);
 			
 			$types[ 'image' ] = array(
-				'title'  => esc_html__( 'Image', 'woo-variation-swatches' ),
-				'output' => 'wvs_image_variation_attribute_options'
+				'title'   => esc_html__( 'Image', 'woo-variation-swatches' ),
+				'output'  => 'wvs_image_variation_attribute_options',
+				'preview' => 'wvs_image_variation_attribute_preview'
 			);
 			
 			$types[ 'button' ] = array(
-				'title'  => esc_html__( 'Button', 'woo-variation-swatches' ),
-				'output' => 'wvs_button_variation_attribute_options'
+				'title'   => esc_html__( 'Button', 'woo-variation-swatches' ),
+				'output'  => 'wvs_button_variation_attribute_options',
+				'preview' => 'wvs_button_variation_attribute_preview'
 			);
 			
-			return apply_filters( 'wvs_available_attributes_types', $types );
+			$types = apply_filters( 'wvs_available_attributes_types', $types );
+			
+			if ( $type && isset( $types[ $type ] ) ) {
+				return $types[ $type ];
+			}
+			
+			return $types;
+		}
+	endif;
+	
+	//-------------------------------------------------------------------------------
+	// Color Variation Preview
+	//-------------------------------------------------------------------------------
+	
+	if ( ! function_exists( 'wvs_color_variation_attribute_preview' ) ):
+		function wvs_color_variation_attribute_preview( $term_id, $attribute, $fields ) {
+			
+			$key   = $fields[ 0 ][ 'id' ];
+			$value = sanitize_hex_color( get_term_meta( $term_id, $key, TRUE ) );
+			
+			printf( '<div class="wvs-preview wvs-color-preview" style="background-color:%s;"></div>', esc_attr( $value ) );
+		}
+	endif;
+	
+	//-------------------------------------------------------------------------------
+	// Image Variation Preview
+	//-------------------------------------------------------------------------------
+	
+	if ( ! function_exists( 'wvs_image_variation_attribute_preview' ) ):
+		function wvs_image_variation_attribute_preview( $term_id, $attribute, $fields ) {
+			
+			$key           = $fields[ 0 ][ 'id' ];
+			$attachment_id = absint( get_term_meta( $term_id, $key, TRUE ) );
+			$image         = wp_get_attachment_image_url( $attachment_id );
+			
+			printf( '<img src="%s" class="wvs-preview wvs-image-preview" />', esc_url( $image ) );
 		}
 	endif;
 	
@@ -114,12 +152,12 @@
 	endif;
 	
 	//-------------------------------------------------------------------------------
-	// Add WooCommerce taxonomy Meta
+	// WooCommerce taxonomy Meta Field Settings
 	//-------------------------------------------------------------------------------
 	
-	if ( ! function_exists( 'wvs_add_product_taxonomy_meta' ) ) {
-		
-		function wvs_add_product_taxonomy_meta() {
+	if ( ! function_exists( 'wvs_taxonomy_meta_fields' ) ):
+		function wvs_taxonomy_meta_fields( $field_id = FALSE ) {
+			
 			$fields = array();
 			
 			$fields[ 'color' ] = array(
@@ -140,7 +178,26 @@
 				)
 			);
 			
-			$fields         = apply_filters( 'wvs_product_taxonomy_meta_fields', $fields );
+			$fields = apply_filters( 'wvs_product_taxonomy_meta_fields', $fields );
+			
+			if ( $field_id && isset( $fields[ $field_id ] ) ) {
+				return $fields[ $field_id ];
+			}
+			
+			return $fields;
+			
+		}
+	endif;
+	
+	//-------------------------------------------------------------------------------
+	// Add WooCommerce taxonomy Meta
+	//-------------------------------------------------------------------------------
+	
+	if ( ! function_exists( 'wvs_add_product_taxonomy_meta' ) ) {
+		
+		function wvs_add_product_taxonomy_meta() {
+			
+			$fields         = wvs_taxonomy_meta_fields();
 			$meta_added_for = apply_filters( 'wvs_product_taxonomy_meta_for', array( 'color', 'image' ) );
 			
 			if ( function_exists( 'wc_get_attribute_taxonomies' ) ):

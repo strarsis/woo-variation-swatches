@@ -43,6 +43,8 @@
 				
 				add_action( 'admin_footer', array( $this, 'admin_inline_js' ) );
 				
+				new WVS_Customizer( $this->theme_feature_name, $this->plugin_class, $this->settings_name, $this->fields );
+				
 				do_action( 'wvs_setting_api_init', $this );
 			}
 			
@@ -159,9 +161,11 @@
 				}
 				
 				if ( $is_new ) {
-					return ( $default[ 'type' ] === 'checkbox' ) ? ( ! ! $default[ 'value' ] ) : $default[ 'value' ];
+					// return ( $default[ 'type' ] === 'checkbox' ) ? ( ! ! $default[ 'value' ] ) : $default[ 'value' ];
+					return $default[ 'value' ];
 				} else {
-					return ( $default[ 'type' ] === 'checkbox' ) ? ( isset( $options[ $option ] ) ? TRUE : FALSE ) : ( isset( $options[ $option ] ) ? $options[ $option ] : $default[ 'value' ] );
+					// return ( $default[ 'type' ] === 'checkbox' ) ? ( isset( $options[ $option ] ) ? TRUE : FALSE ) : ( isset( $options[ $option ] ) ? $options[ $option ] : $default[ 'value' ] );
+					return isset( $options[ $option ] ) ? $options[ $option ] : $default[ 'value' ];
 				}
 			}
 			
@@ -171,9 +175,20 @@
 				update_option( $this->settings_name, $options );
 			}
 			
+			public function sanitize_callback( $options ) {
+				
+				foreach ( $this->get_defaults() as $opt ) {
+					if ( $opt[ 'type' ] === 'checkbox' && ! isset( $options[ $opt[ 'id' ] ] ) ) {
+						$options[ $opt[ 'id' ] ] = 0;
+					}
+				}
+				
+				return $options;
+			}
+			
 			public function settings_init() {
 				
-				register_setting( $this->settings_name, $this->settings_name );
+				register_setting( $this->settings_name, $this->settings_name, array( $this, 'sanitize_callback' ) );
 				
 				foreach ( $this->fields as $tab_key => $tab ) {
 					
@@ -246,9 +261,10 @@
 			}
 			
 			public function checkbox_field_callback( $args ) {
+				
 				$value = (bool) $this->get_option( $args[ 'id' ] );
 				$size  = isset( $args[ 'size' ] ) && ! is_null( $args[ 'size' ] ) ? $args[ 'size' ] : 'regular';
-				$html  = sprintf( '<fieldset><label><input type="checkbox" id="%2$s-field" name="%4$s[%2$s]" value="%3$s" %5$s/> %6$s</label></fieldset>', $size, $args[ 'id' ], $value, $this->settings_name, checked( $value, TRUE, FALSE ), esc_attr( $args[ 'desc' ] ) );
+				$html  = sprintf( '<fieldset><label><input type="checkbox" id="%2$s-field" name="%4$s[%2$s]" value="%3$s" %5$s/> %6$s</label></fieldset>', $size, $args[ 'id' ], TRUE, $this->settings_name, checked( $value, TRUE, FALSE ), esc_attr( $args[ 'desc' ] ) );
 				
 				echo $html;
 			}

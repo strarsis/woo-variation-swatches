@@ -58,6 +58,7 @@
 			
 			public function includes() {
 				if ( $this->is_required_php_version() ) {
+					require_once $this->include_path( 'class-wvs-customizer.php' );
 					require_once $this->include_path( 'class-wvs-settings-api.php' );
 					require_once $this->include_path( 'class-wvs-term-meta.php' );
 					require_once $this->include_path( 'functions.php' );

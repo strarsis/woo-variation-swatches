@@ -79,3 +79,4 @@ mix.babel(`src/js/FormFieldDependency.js`, `assets/js/form-field-dependency${min
 mix.sass(`src/scss/backend.scss`, `assets/css/admin${min}.css`);
 mix.sass(`src/scss/frontend.scss`, `assets/css/frontend${min}.css`);
 mix.sass(`src/scss/tooltip.scss`, `assets/css/frontend-tooltip${min}.css`);
+mix.sass(`src/scss/customize-heading-control.scss`, `assets/css/wvs-customize-heading-control${min}.css`);

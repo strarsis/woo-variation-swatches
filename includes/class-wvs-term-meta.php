@@ -16,7 +16,7 @@
 				$this->fields    = $fields;
 				
 				// Category/term ordering
-				//add_action( 'create_term', array( $this, 'create_term' ), 5, 3 );
+				// add_action( 'create_term', array( $this, 'create_term' ), 5, 3 );
 				
 				add_action( 'delete_term', array( $this, 'delete_term' ), 5, 4 );
 				
@@ -116,13 +116,17 @@
 				$screen = get_current_screen();
 				
 				if ( ( $screen->post_type == $this->post_type ) and ( $screen->taxonomy == $this->taxonomy ) ) {
-					$this->generate_form_fields( $term );
+					self::generate_form_fields( $this->fields, $term );
 				}
 			}
 			
-			private function generate_form_fields( $term ) {
+			public static function generate_form_fields( $fields, $term ) {
 				
-				$fields = apply_filters( 'wvs_term_meta_fields', $this->fields, $term );
+				$fields = apply_filters( 'wvs_term_meta_fields', $fields, $term );
+				
+				if ( empty( $fields ) ) {
+					return;
+				}
 				
 				foreach ( $fields as $field ) {
 					
@@ -143,7 +147,7 @@
 					
 					$field[ 'dependency' ]       = ( isset( $field[ 'dependency' ] ) ) ? $field[ 'dependency' ] : array();
 					
-					$this->field_start( $field, $term );
+					self::field_start( $field, $term );
 					switch ( $field[ 'type' ] ) {
 						case 'text':
 						case 'url':
@@ -206,7 +210,7 @@
 							?>
                             <div class="meta-image-field-wrapper">
                                 <div class="image-preview">
-                                    <img data-placeholder="<?php echo esc_url( $this->placeholder_img_src() ); ?>" src="<?php echo esc_url( $this->get_img_src( $field[ 'value' ] ) ); ?>" width="60px" height="60px"/>
+                                    <img data-placeholder="<?php echo esc_url( self::placeholder_img_src() ); ?>" src="<?php echo esc_url( self::get_img_src( $field[ 'value' ] ) ); ?>" width="60px" height="60px"/>
                                 </div>
                                 <div class="button-wrapper">
                                     <input type="hidden" id="<?php echo $field[ 'id' ] ?>" name="<?php echo $field[ 'id' ] ?>" value="<?php echo esc_attr( $field[ 'value' ] ) ?>"/>
@@ -222,12 +226,12 @@
 							break;
 						
 					}
-					$this->field_end( $field, $term );
+					self::field_end( $field, $term );
 					
 				}
 			}
 			
-			private function field_start( $field, $term ) {
+			private static function field_start( $field, $term ) {
 				
 				$depends = empty( $field[ 'dependency' ] ) ? '' : "data-depends='" . wp_json_encode( $field[ 'dependency' ] ) . "'";
 				
@@ -247,21 +251,21 @@
 				echo ob_get_clean();
 			}
 			
-			public function get_img_src( $thumbnail_id = FALSE ) {
+			private static function get_img_src( $thumbnail_id = FALSE ) {
 				if ( ! empty( $thumbnail_id ) ) {
 					$image = wp_get_attachment_thumb_url( $thumbnail_id );
 				} else {
-					$image = $this->placeholder_img_src();
+					$image = self::placeholder_img_src();
 				}
 				
 				return $image;
 			}
 			
-			public function placeholder_img_src() {
+			private static function placeholder_img_src() {
 				return woo_variation_swatches()->images_uri( 'placeholder.png' );
 			}
 			
-			private function field_end( $field, $term ) {
+			private static function field_end( $field, $term ) {
 				
 				ob_start();
 				if ( ! $term ) {

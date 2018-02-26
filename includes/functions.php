@@ -30,8 +30,8 @@
 			
 			$types = apply_filters( 'wvs_available_attributes_types', $types );
 			
-			if ( $type && isset( $types[ $type ] ) ) {
-				return $types[ $type ];
+			if ( $type ) {
+				return isset( $types[ $type ] ) ? $types[ $type ] : array();
 			}
 			
 			return $types;
@@ -180,8 +180,8 @@
 			
 			$fields = apply_filters( 'wvs_product_taxonomy_meta_fields', $fields );
 			
-			if ( $field_id && isset( $fields[ $field_id ] ) ) {
-				return $fields[ $field_id ];
+			if ( $field_id ) {
+				return isset( $fields[ $field_id ] ) ? $fields[ $field_id ] : array();
 			}
 			
 			return $fields;
@@ -244,10 +244,19 @@
 						endif;
 					?>
                 </select>
+				<?php do_action( 'before_wvs_product_option_terms_button', $tax, $taxonomy ); ?>
                 <button class="button plus select_all_attributes"><?php esc_html_e( 'Select all', 'woo-variation-swatches' ); ?></button>
                 <button class="button minus select_no_attributes"><?php esc_html_e( 'Select none', 'woo-variation-swatches' ); ?></button>
-                <button class="button fr plus add_new_attribute"><?php esc_html_e( 'Add new', 'woo-variation-swatches' ); ?></button>
+				
 				<?php
+				$fields = wvs_taxonomy_meta_fields( $tax->attribute_type );
+				if ( ! empty( $fields ) ): ?>
+                    <button class="button fr plus wvs_add_new_attribute" data-dialog_title="<?php printf( esc_html__( 'Add new %s', 'woo-variation-swatches' ), esc_attr( $tax->attribute_label ) ) ?>"><?php esc_html_e( 'Add new', 'woo-variation-swatches' ); ?></button>
+				<?php else: ?>
+                    <button class="button fr plus add_new_attribute"><?php esc_html_e( 'Add new', 'woo-variation-swatches' ); ?></button>
+				<?php endif; ?>
+				<?php
+				do_action( 'after_wvs_product_option_terms_button', $tax, $taxonomy );
 			}
 		}
 	endif;

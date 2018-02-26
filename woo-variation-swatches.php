@@ -89,7 +89,29 @@
 					add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 					add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 					add_filter( 'body_class', array( $this, 'body_class' ) );
+					
+					add_action( 'after_wvs_product_option_terms_button', array( $this, 'add_product_attribute_dialog' ), 10, 2 );
 				}
+			}
+			
+			// dialog_title
+			public function add_product_attribute_dialog( $tax, $taxonomy ) {
+				
+				// from /wp-admin/edit-tags.php
+				?>
+                <div class="wvs-attribute-dialog hidden wvs-attribute-dialog-for-<?php echo esc_attr( $taxonomy ) ?>" style="max-width:500px">
+                    <div class="form-field form-required term-name-wrap">
+                        <label for="tag-name-for-<?php echo esc_attr( $taxonomy ) ?>"><?php _ex( 'Name', 'term name' ); ?></label>
+                        <input name="tag_name" required id="tag-name-for-<?php echo esc_attr( $taxonomy ) ?>" type="text" value="" size="40" aria-required="true"/>
+                        <p><?php _e( 'The name is how it appears on your site.' ); ?></p>
+                    </div>
+					
+					<?php
+						$fields = wvs_taxonomy_meta_fields( $tax->attribute_type );
+						WVS_Term_Meta::generate_form_fields( $fields, FALSE );
+					?>
+                </div>
+				<?php
 			}
 			
 			public function body_class( $classes ) {
@@ -119,19 +141,26 @@
 			
 			public function admin_enqueue_scripts() {
 				$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+				
+				wp_enqueue_script( 'jquery-ui-dialog' );
+				
 				wp_enqueue_script( 'form-field-dependency', $this->assets_uri( "/js/form-field-dependency{$suffix}.js" ), array( 'jquery' ), $this->version(), TRUE );
 				wp_enqueue_script( 'woo-variation-swatches-admin', $this->assets_uri( "/js/admin{$suffix}.js" ), array( 'jquery' ), $this->version(), TRUE );
 				wp_enqueue_style( 'woo-variation-swatches-admin', $this->assets_uri( "/css/admin{$suffix}.css" ), array(), $this->version() );
+				
 				
 				// wp_enqueue_script( 'selectWoo' );
 				// wp_enqueue_style( 'select2' );
 				
 				wp_localize_script( 'woo-variation-swatches-admin', 'WVSPluginObject', array(
-					'media_title'  => esc_html__( 'Choose an Image', 'woo-variation-swatches' ),
-					'button_title' => esc_html__( 'Use Image', 'woo-variation-swatches' ),
-					'add_media'    => esc_html__( 'Add Media', 'woo-variation-swatches' ),
-					'ajaxurl'      => esc_url( admin_url( 'admin-ajax.php', 'relative' ) ),
-					'nonce'        => wp_create_nonce( 'wvs_plugin_nonce' ),
+					'media_title'   => esc_html__( 'Choose an Image', 'woo-variation-swatches' ),
+					'dialog_title'  => esc_html__( 'Add Attribute', 'woo-variation-swatches' ),
+					'dialog_save'   => esc_html__( 'Add', 'woo-variation-swatches' ),
+					'dialog_cancel' => esc_html__( 'Cancel', 'woo-variation-swatches' ),
+					'button_title'  => esc_html__( 'Use Image', 'woo-variation-swatches' ),
+					'add_media'     => esc_html__( 'Add Media', 'woo-variation-swatches' ),
+					'ajaxurl'       => esc_url( admin_url( 'admin-ajax.php', 'relative' ) ),
+					'nonce'         => wp_create_nonce( 'wvs_plugin_nonce' ),
 				) );
 			}
 			

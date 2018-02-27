@@ -4,12 +4,12 @@
 	 * Plugin URI: https://wordpress.org/plugins/woo-variation-swatches/
 	 * Description: WooCommerce Product Variation Swatches
 	 * Author: Emran Ahmed
-	 * Version: 1.0.10
+	 * Version: 1.0.11
 	 * Domain Path: /languages
 	 * Requires at least: 4.8
 	 * Tested up to: 4.9
-	 * WC requires at least: 3.2.0
-	 * WC tested up to: 3.2.6
+	 * WC requires at least: 3.2
+	 * WC tested up to: 3.3
 	 * Text Domain: woo-variation-swatches
 	 * Author URI: https://getwooplugins.com/
 	 */

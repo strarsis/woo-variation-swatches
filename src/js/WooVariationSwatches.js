@@ -64,11 +64,14 @@ const WooVariationSwatches = (($) => {
                             if (!obj[attribute_name]) {
                                 obj[attribute_name] = []
                             }
-                            obj[attribute_name].push(variation.attributes[attribute_name])
-                        })
+
+                            if (variation.attributes[attribute_name]) {
+                                obj[attribute_name].push(variation.attributes[attribute_name])
+                            }
+                        });
 
                         return obj;
-                    }, {})
+                    }, {});
 
                     $(this).find('ul.variable-items-wrapper').each(function () {
                         let li               = $(this).find('li');
@@ -77,7 +80,8 @@ const WooVariationSwatches = (($) => {
 
                         li.each(function () {
                             let attribute_value = $(this).attr('data-value');
-                            if (!attribute_values.includes(attribute_value)) {
+
+                            if (!_.isEmpty(attribute_values) && !attribute_values.includes(attribute_value)) {
                                 $(this).removeClass('selected');
                                 $(this).addClass('disabled');
                             }

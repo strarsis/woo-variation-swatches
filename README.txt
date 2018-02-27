@@ -1,5 +1,5 @@
 === WooCommerce Variation Swatches ===
-Contributors: EmranAhmed, wpeshaan
+Contributors: EmranAhmed, wpeshaan, getwooplugins
 Tags: woocommerce variation, woocommerce, variation swatches, woocommerce attributes, product attributes, product color, product size, variable product attributes, variation product swatches, color variation swatch, image variation swatch
 Requires at least: 4.8
 Tested up to: 4.9
@@ -134,6 +134,13 @@ Just call this javascript function on ajax load event `$('.variations_form').tri
 8. Settings Panel
 
 == Changelog ==
+
+= 1.0.11 =
+
+* New Attribute create from product
+* Variation Preview color, image
+* Settings option also added on customizer
+* Fix: Any variation issue caused by outofstock variation
 
 = 1.0.10 =
 

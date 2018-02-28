@@ -108,7 +108,7 @@ msgstr ""
 msgid "Choose a color"
 msgstr ""
 
-#: ../includes/functions.php:175, ../woo-variation-swatches.php:156
+#: ../includes/functions.php:175, ../woo-variation-swatches.php:155
 msgid "Choose an Image"
 msgstr ""
 
@@ -136,62 +136,62 @@ msgstr ""
 msgid "Choose an option"
 msgstr ""
 
-#: ../woo-variation-swatches.php:157
+#: ../woo-variation-swatches.php:156
 msgid "Add Attribute"
 msgstr ""
 
-#: ../woo-variation-swatches.php:158
+#: ../woo-variation-swatches.php:157
 msgid "Add"
 msgstr ""
 
-#: ../woo-variation-swatches.php:159
+#: ../woo-variation-swatches.php:158
 msgid "Cancel"
 msgstr ""
 
-#: ../woo-variation-swatches.php:160
+#: ../woo-variation-swatches.php:159
 msgid "Use Image"
 msgstr ""
 
-#: ../woo-variation-swatches.php:161
+#: ../woo-variation-swatches.php:160
 msgid "Add Media"
 msgstr ""
 
-#: ../woo-variation-swatches.php:216
+#: ../woo-variation-swatches.php:215
 msgid "View Documentation"
 msgstr ""
 
-#: ../woo-variation-swatches.php:216
+#: ../woo-variation-swatches.php:215
 msgid "Documentation"
 msgstr ""
 
-#: ../woo-variation-swatches.php:217, ../woo-variation-swatches.php:217
+#: ../woo-variation-swatches.php:216, ../woo-variation-swatches.php:216
 msgid "Support"
 msgstr ""
 
-#: ../woo-variation-swatches.php:218
+#: ../woo-variation-swatches.php:217
 msgid "Review"
 msgstr ""
 
-#: ../woo-variation-swatches.php:218
+#: ../woo-variation-swatches.php:217
 msgid "Please Rate Us"
 msgstr ""
 
-#: ../woo-variation-swatches.php:248
+#: ../woo-variation-swatches.php:247
 msgid "Please check PHP version requirement."
 msgstr ""
 
-#: ../woo-variation-swatches.php:250
+#: ../woo-variation-swatches.php:249
 msgid "It's required to use latest version of PHP to use <strong>WooCommerce Variation Swatches</strong>."
 msgstr ""
 
-#: ../woo-variation-swatches.php:260
+#: ../woo-variation-swatches.php:259
 msgid "WooCommerce"
 msgstr ""
 
-#: ../woo-variation-swatches.php:262
+#: ../woo-variation-swatches.php:261
 msgid "<strong>WooCommerce Variation Swatches</strong> is an add-on of "
 msgstr ""
 
-#: ../woo-variation-swatches.php:358
+#: ../woo-variation-swatches.php:357
 msgid "WooCommerce Variation Swatches Plugin try to load \"%s\" but template \"%s\" was not found."
 msgstr ""

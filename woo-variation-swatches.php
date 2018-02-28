@@ -4,7 +4,7 @@
 	 * Plugin URI: https://wordpress.org/plugins/woo-variation-swatches/
 	 * Description: WooCommerce Product Variation Swatches
 	 * Author: Emran Ahmed
-	 * Version: 1.0.11
+	 * Version: 1.0.12
 	 * Domain Path: /languages
 	 * Requires at least: 4.8
 	 * Tested up to: 4.9
@@ -102,10 +102,9 @@
                 <div class="wvs-attribute-dialog hidden wvs-attribute-dialog-for-<?php echo esc_attr( $taxonomy ) ?>" style="max-width:500px">
                     <div class="form-field form-required term-name-wrap">
                         <label for="tag-name-for-<?php echo esc_attr( $taxonomy ) ?>"><?php _ex( 'Name', 'term name' ); ?></label>
-                        <input name="tag_name" required id="tag-name-for-<?php echo esc_attr( $taxonomy ) ?>" type="text" value="" size="40" aria-required="true"/>
+                        <input name="tag_name" id="tag-name-for-<?php echo esc_attr( $taxonomy ) ?>" type="text" value="" size="40" aria-required="true"/>
                         <p><?php _e( 'The name is how it appears on your site.' ); ?></p>
                     </div>
-					
 					<?php
 						$fields = wvs_taxonomy_meta_fields( $tax->attribute_type );
 						WVS_Term_Meta::generate_form_fields( $fields, FALSE );

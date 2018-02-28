@@ -135,6 +135,10 @@ Just call this javascript function on ajax load event `$('.variations_form').tri
 
 == Changelog ==
 
+= 1.0.12 =
+
+* Fix: Disable publish button issue
+
 = 1.0.11 =
 
 * New Attribute create from product

@@ -77,7 +77,7 @@
 					return '';
 				}
 				
-				$page_title = esc_html__( 'Woo Variation Swatches Settings', 'woo-variation-swatches' );
+				$page_title = esc_html__( 'WooCommerce Variation Swatches Settings', 'woo-variation-swatches' );
 				$menu_title = esc_html__( 'Swatches Settings', 'woo-variation-swatches' );
 				add_menu_page( $page_title, $menu_title, 'edit_theme_options', $this->slug, array( $this, 'settings_form' ), 'dashicons-admin-generic', 31 );
 			}

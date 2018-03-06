@@ -51,6 +51,7 @@ const WooVariationSwatches = (($) => {
 
             _.delay(() => {
                 this._element.trigger('woo_variation_swatches_init', [this, this.product_variations])
+                $(document).trigger('woo_variation_swatches_loaded', [this._element, this.product_variations])
             }, 1)
         }
 
@@ -116,6 +117,13 @@ const WooVariationSwatches = (($) => {
                             li       = $(this).find('li'),
                             selects  = [];
 
+                        // For Avada FIX
+                        if (options.length < 1) {
+                            options = $(this).parent().find('select.woo-variation-raw-select').find('option');
+                            current = $(this).parent().find('select.woo-variation-raw-select').find('option:selected');
+                            eq      = $(this).parent().find('select.woo-variation-raw-select').find('option').eq(1);
+                        }
+
                         options.each(function () {
                             if ($(this).val() !== '') {
                                 selects.push($(this).val());
@@ -145,6 +153,13 @@ const WooVariationSwatches = (($) => {
                         eq       = $(this).siblings('select.woo-variation-raw-select').find('option').eq(1),
                         li       = $(this).find('li'),
                         selects  = [];
+
+                    // For Avada FIX
+                    if (options.length < 1) {
+                        options = $(this).parent().find('select.woo-variation-raw-select').find('option');
+                        current = $(this).parent().find('select.woo-variation-raw-select').find('option:selected');
+                        eq      = $(this).parent().find('select.woo-variation-raw-select').find('option').eq(1);
+                    }
 
                     options.each(function () {
                         if ($(this).val() !== '') {

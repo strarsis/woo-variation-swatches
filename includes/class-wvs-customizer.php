@@ -30,7 +30,7 @@
 				$wp_customize->add_panel( $this->_settings_name, array(
 					'priority'   => 100,
 					'capability' => 'manage_woocommerce',
-					'title'      => esc_html__( 'Woo Variation Swatches', 'woo-variation-swatches' ),
+					'title'      => esc_html__( 'WooCommerce Variation Swatches', 'woo-variation-swatches' ),
 				) );
 			}
 			
